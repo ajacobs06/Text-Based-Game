@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class equipmentList {
 
     public static equipmentList() {
-         ArrayList<Equipment> equipment = new ArrayList<Equipment>;
+         ArrayList<Equipment> equipment = new ArrayList<Equipment>();
     }
 
     public void addEquipment(Equipment equipmentInput) {

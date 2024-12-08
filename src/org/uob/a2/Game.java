@@ -24,12 +24,12 @@ public class Game {
 
         setup(){
 
-            ArrayList<Room> roomArrayList = new ArrayList<Room>;
-            ArrayList<Equipment> equipmentArrayList = new ArrayList<Equipment>;
-            ArrayList<Container> containerArrayList = new ArrayList<Container>;
-            ArrayList<Exit> exitArrayList = new ArrayList<Exit>;
-            ArrayList<Feature> featureArrayList = new ArrayList<Feature>;
-            ArrayList<Item> itemArrayList = new ArrayList<item>;
+            ArrayList<Room> roomArrayList = new ArrayList<Room>();
+            ArrayList<Equipment> equipmentArrayList = new ArrayList<Equipment>();
+            ArrayList<Container> containerArrayList = new ArrayList<Container>();
+            ArrayList<Exit> exitArrayList = new ArrayList<Exit>();
+            ArrayList<Feature> featureArrayList = new ArrayList<Feature>();
+            ArrayList<Item> itemArrayList = new ArrayList<Item>();
 
             File textFile = new File("game.txt");
             Scanner fileInput = new Scanner(textFile);

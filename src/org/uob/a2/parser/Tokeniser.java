@@ -26,7 +26,7 @@ public class Tokeniser {
    }
 
    public void tokenise(String s){
-       int counter = 0
+       int counter = 0;
        String[] sSplit = s.split(" ");
        String[] vars = new String[10];
        for(int i = 0; i < sSplit.length; i++){
@@ -40,7 +40,7 @@ public class Tokeniser {
                    tokens.add(new Token(TokenType.t));
                }
                else if(i.equalsIgnoreCase("with") || i.equalsIgnoreCase("on")){
-                   tokens.add(new Token(TokenType.PREPOSITION))
+                   tokens.add(new Token(TokenType.PREPOSITION));
                }
                else{
                    vars[counter] = i;

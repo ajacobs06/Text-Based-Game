@@ -35,9 +35,9 @@ public class Status extends Command {
             }
             return inventory;
         }
-        else if(/*is an item*/){
+        /*else if(is an item){
             return description;
-        }
+        }*/
         else if(topic == "player"){
             return gameState.getPlayer().toString();
         }

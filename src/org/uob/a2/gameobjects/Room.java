@@ -15,16 +15,16 @@ public class Room extends GameObject {
     String name;
     String description;
     boolean hidden;
-    ArrayList<Exit> exitsList = new ArrayList<Exit>;
-    ArrayList<Item> items = new ArrayList<Item>;
-    ArrayList<Feature> features = new ArrayList<Feature>;
-    ArraList<Equipment> equipmentList = new ArrayList<Equipment>;
-    ArrayList<GameObject> gameObjects = new ArrayList<GameObject>;
+    ArrayList<Exit> exitsList = new ArrayList<Exit>();
+    ArrayList<Item> items = new ArrayList<Item>();
+    ArrayList<Feature> features = new ArrayList<Feature>();
+    ArraList<Equipment> equipmentList = new ArrayList<Equipment>();
+    ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 
     public Room(){}
 
-    public Room(id, name, description, hidden){
+    public Room(String id, String name, String description, boolean hidden){
         this.id = id;
         this.name = name;
         this.description = description;

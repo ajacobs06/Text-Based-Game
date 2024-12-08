@@ -12,7 +12,7 @@ public class Item extends GameObject {
     String id;
     String name;
     String description;
-    boolean hidden:
+    boolean hidden;
 
     public Item(String id, String name, String description, boolean hidden){
         this.id = id;

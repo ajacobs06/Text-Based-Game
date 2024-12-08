@@ -23,7 +23,7 @@ public class Help extends Command {
     }
 
     public String execute(GameState gameState) {
-        switch topic {
+        switch(topic) {
             case "move":
                 return "Use 'move' followed by an exit to leave the room and move into the next.";
                 break;

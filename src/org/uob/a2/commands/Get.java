@@ -14,7 +14,7 @@ import org.uob.a2.gameobjects.*;
 public class Get extends Command {
     String item;
 
-    public Get(item){
+    public Get(String item){
         this.item = item;
     }
 
@@ -29,7 +29,7 @@ public class Get extends Command {
                 gameState.getPlayer().getItem(item);
             }
             else{
-                System.out.println("You already have this item!";
+                System.out.println("You already have this item!");
             }
         }
         else{

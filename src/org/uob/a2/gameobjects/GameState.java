@@ -12,7 +12,7 @@ public class GameState {
     Map map;
     Player player;
 
-    public gameState(){
+    public GameState(){
     }
 
     public GameState(Map map, Player player){

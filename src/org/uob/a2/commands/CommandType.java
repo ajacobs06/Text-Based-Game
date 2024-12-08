@@ -49,7 +49,7 @@ public enum CommandType {
     QUIT,
 }
 
-public static CommandType[] values(){
+/*public static CommandType[] values(){
     return CommandType.values();
 }
 

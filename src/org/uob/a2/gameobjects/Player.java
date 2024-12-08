@@ -44,7 +44,7 @@ public class Player {
     }
 
     public Item getItem(String itemName){
-        if hasItem(itemName){
+        if(hasItem(itemName)){
             for(Item i : items)
                 if(i == itemName){
                     return i;
@@ -55,7 +55,7 @@ public class Player {
         }
     }
 
-    public addItem(Item item){
+    public void addItem(Item item){
         items.add(item);
     }
 
@@ -74,7 +74,7 @@ public class Player {
     }
 
     public Equipment getEquipment(String equipment){
-        if hasEquipment(equipment){
+        if(hasEquipment(equipment)){
             for(Equipment i : equipmentList){
                 return i;
             }

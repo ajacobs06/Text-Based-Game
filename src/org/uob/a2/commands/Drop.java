@@ -13,7 +13,7 @@ import org.uob.a2.gameobjects.*;
 public class Drop extends Command {
     String item;
 
-    public Drop(item) {
+    public Drop(String item) {
         this.item = item;
     }
 
@@ -31,7 +31,7 @@ public class Drop extends Command {
             toString();
         }
         else{
-            System.out.println("You do not have this item to drop!")
+            System.out.println("You do not have this item to drop!");
         }
     }
    

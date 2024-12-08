@@ -55,7 +55,7 @@ public class Parser {
                 return get;
                 break;
             case TokenType.HELP:
-                Help help = new Help(tokens[1].getValue())
+                Help help = new Help(tokens[1].getValue());
                 break;
             case TokenType.LOOK:
                 Look look = new Look(tokens[1].getValue());
@@ -75,7 +75,7 @@ public class Parser {
                 }
                 break;
             default:
-                CommandErrorException error = new CommandErrorException;
+                CommandErrorException error = new CommandErrorException();
                 error.toString();
                 break;
         }

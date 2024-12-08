@@ -32,9 +32,7 @@ public class Look extends Command {
                 gameState.getCurrentRoom().getFeatures();
                 break;
             default:
-                if(/*target is an item/equipment/feature*/){
-                    /* get description */
-                }
+                break;
         }
 
     }

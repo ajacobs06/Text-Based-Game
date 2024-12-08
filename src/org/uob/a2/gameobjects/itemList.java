@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class itemList {
 
     public static itemList(){
-        ArrayList<Item> itemList = new ArrayList<Item>;
+        ArrayList<Item> itemList = new ArrayList<Item>();
     }
 
     public boolean isItem(String item){

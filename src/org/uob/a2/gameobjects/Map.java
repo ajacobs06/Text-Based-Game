@@ -29,7 +29,7 @@ public class Map {
             }
     }
 
-    public getCurrentRoom(){
+    public void getCurrentRoom(){
 
     }
 

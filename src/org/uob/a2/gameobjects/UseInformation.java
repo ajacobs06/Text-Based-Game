@@ -16,7 +16,7 @@ public class UseInformation {
     String result;
     String message;
 
-    public UseInformation(isUsed, action, target, result, message) {
+    public UseInformation(boolean isUsed, String action, String target, String result, String message) {
         this.isUsed = isUsed;
         this.action = action;
         this.target = target;
