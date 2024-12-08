@@ -62,7 +62,11 @@ public class Game {
         Map map = new Map();
         GameState gameState = new GameState(map, player);
 
-        System.out.println(roomArrayList.size());
+        System.out.println(roomArrayList);
+        System.out.println(equipmentArrayList);
+        System.out.println(containerArrayList);
+        System.out.println(exitArrayList);
+        System.out.println(featureArrayList);
     }
 
     public static void main(String[] args){

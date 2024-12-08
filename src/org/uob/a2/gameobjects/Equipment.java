@@ -9,7 +9,7 @@ public class Equipment extends GameObject implements Usable {
      * @return a string describing the equipment
      */
 
-    public void Equipment(String id, String name, String description, boolean hidden, UseInformation useInformation){
+    public Equipment(String id, String name, String description, boolean hidden, UseInformation useInformation){
         this.id = id;
         this.name = name;
         this.description = description;
