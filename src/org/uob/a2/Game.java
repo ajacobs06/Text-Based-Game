@@ -29,34 +29,42 @@ public class Game {
         ArrayList<Exit> exitArrayList = new ArrayList<Exit>();
         ArrayList<Feature> featureArrayList = new ArrayList<Feature>();
         ArrayList<Item> itemArrayList = new ArrayList<Item>();
+        ArrayList<UseInformation> useInformationArrayList = new ArrayList<UseInformation>();
 
         File textFile = new File("game.txt");
         Scanner fileInput = new Scanner(textFile);
         while(fileInput.hasNextLine()){
+            int counter = 0
             String line = fileInput.nextLine();
             String[] lineSplit = line.split(":");
             String[] objectParts = lineSplit[1].split(",");
-            boolean hidden = Boolean.parseBoolean(objectParts[3]);
+            for(int i=0; i<objectParts.length; i++){
+                if(objectParts[i].equalsIgnoreCase("true") || objectParts[i].equalsIgnoreCase("false")){
+                    boolean hidden = Boolean.parseBoolean(objectParts[i]);
+                }
+            }
             switch(lineSplit[0]){
                 case "player":
                     Player player = new Player(lineSplit[1]);
                     break;
                 case "room":
-                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden));
+                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
                     break;
                 case "equipment":
-                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, objectParts[4], objectParts[5]));
+                    useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]))
+                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], objectParts[3], useInformationArrayList[counter]));
                     break;
                 case "container":
-                    containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], hidden));
+                    containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
                     break;
                 case "exit":
-                    exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], hidden, objectParts[4]));
+                    exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], objectParts[3], objectParts[4]));
                     break;
                 case "feature":
-                    featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], hidden));
+                    featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
 
             }
+            counter++;
 
         }
         Map map = new Map();
