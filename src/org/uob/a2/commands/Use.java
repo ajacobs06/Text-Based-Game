@@ -19,10 +19,12 @@ public class Use extends Command {
         this.target = target;
     }
 
+    @Override
     public String toString(){
 
     }
 
+    @Override
     public String execute(GameState gameState){
 
     }

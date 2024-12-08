@@ -12,16 +12,18 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Help extends Command {
-    String topic;
+    String topic = "topic";
 
     public Help(String topic) {
         this.topic = topic;
     }
 
+    @Override
     public String toString(){
 
     }
 
+    @Override
     public String execute(GameState gameState) {
         switch(topic) {
             case "move":
@@ -46,7 +48,7 @@ public class Help extends Command {
             case "combine":
                 return "Use 'combine' in the following format:\n    combine <item1> <item2>";
                 break;
-            case null:
+            case "topic":
                 return "Here are a list of commands and the ways to use them:\n" +
                         "Use 'move' followed by an exit to leave the room and move into the next.\n" +
                         "Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +

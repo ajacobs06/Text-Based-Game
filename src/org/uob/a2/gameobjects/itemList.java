@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class itemList {
 
+    ArrayList<Item> itemArrayList = new ArrayList<Item>();
+
     public itemList(){
-        ArrayList<Item> itemList = new ArrayList<Item>();
     }
 
     public boolean isItem(String item){
@@ -17,12 +18,12 @@ public class itemList {
         }
     }
 
-    public void addItem(Item item){
-        itemList.add(item);
+    public static void addItem(Item item){
+        itemArrayList.add(item);
     }
 
-    public Item getObject(String item){
-        for(Item i : itemList){
+    public static Item getObject(String item){
+        for(Item i : itemArrayList){
             if(i.getName() == item){
                 return i;
             }

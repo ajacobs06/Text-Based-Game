@@ -104,7 +104,7 @@ public class Room extends GameObject {
 
     public Equipment getEquipmentByName(String name){
         Equipment found = null;
-        for(Feature i : equipmentList){
+        for(Equipment i : equipmentList){
             if(i.name == name){
                 found = i;
             }
@@ -124,7 +124,7 @@ public class Room extends GameObject {
 
     public Exit getExit(String id){
         Exit found = null;
-        for(Exit i : exits){
+        for(Exit i : exitsList){
             if(i.id == id){
                 found = i;
             }
@@ -163,7 +163,7 @@ public class Room extends GameObject {
     }
 
     public boolean hasItem(String itemName){
-        present = false;
+        boolean present = false;
         for(Item i : Item){
             if(i.equals(itemName)){
                 present = true;
@@ -173,7 +173,7 @@ public class Room extends GameObject {
     }
 
     public boolean hasEquipment(String equipmentName){
-        present = false;
+        boolean present = false;
         for(Equipment i : equipmentList){
             if(i.equals(equipmentName)) {
                 present = true;
@@ -193,13 +193,13 @@ public class Room extends GameObject {
         for (Item i : this.items) {
             out += i + "\n";
         }
-        for (Equipment e : this.equipment) {
+        for (Equipment e : this.equipmentList) {
             out += e + "\n";
         }
         for (Feature f : this.features) {
             out += f + "\n";
         }
-        for (Exit e : this.exits) {
+        for (Exit e : this.exitsList) {
             out += e + "\n";
         }
         return out + "\n";

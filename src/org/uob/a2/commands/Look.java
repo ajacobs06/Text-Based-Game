@@ -17,10 +17,12 @@ public class Look extends Command {
         this.target = target;
     }
 
+    @Override
     public String toString(){
     }
 
-    public void execute(GameState gameState) {
+    @Override
+    public String execute(GameState gameState) {
         switch (target) {
             case "room":
                 gameState.getCurrentRoom().getDescription();

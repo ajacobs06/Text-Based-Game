@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class equipmentList {
 
+    ArrayList<Equipment> equipment = new ArrayList<Equipment>();
+
     public equipmentList() {
-         ArrayList<Equipment> equipment = new ArrayList<Equipment>();
     }
 
-    public void addEquipment(Equipment equipmentInput) {
-        equipment.add(equipment);
+    public static void addEquipment(Equipment equipmentInput) {
+        equipment.add(equipmentInput);
     }
 
     public boolean isEquipment(String equipmentInput) {

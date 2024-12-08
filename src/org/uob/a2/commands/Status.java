@@ -1,6 +1,7 @@
 package org.uob.a2.commands;
 
 import org.uob.a2.gameobjects.*;
+import java.util.ArrayList;
 
 /**
  * Represents the status command, allowing the player to retrieve information
@@ -18,10 +19,12 @@ public class Status extends Command {
         this.topic = topic;
     }
 
+    @Override
     public String toString(){
 
     }
 
+    @Override
     public String execute(GameState gameState) {
         if(topic == "inventory") {
             ArrayList<Equipment> equipment = gameState.getPlayer().getEquipment();

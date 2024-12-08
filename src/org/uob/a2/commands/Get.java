@@ -18,10 +18,12 @@ public class Get extends Command {
         this.item = item;
     }
 
+    @Override
     public String toString(){
         return "You pick up: " + item;
     }
 
+    @Override
     public String execute(GameState gameState){
         if(currentRoom.hasItem(item)){
             if(!gameState.getPlayer().hasItem(item)) {

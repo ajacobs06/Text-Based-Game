@@ -32,6 +32,7 @@ public class Game {
         ArrayList<UseInformation> useInformationArrayList = new ArrayList<UseInformation>();
 
         boolean hidden;
+        Player player;
 
         File textFile = new File("game.txt");
         Scanner fileInput = new Scanner(textFile);

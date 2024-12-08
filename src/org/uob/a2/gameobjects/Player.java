@@ -87,11 +87,11 @@ public class Player {
         equipmentList.add(equipment);
     }
 
-    public void removeEquipment(String equipmentName){
+    public void removeEquipment(Equipment equipmentName){
         equipmentList.remove(equipmentName);
     }
 
-    public void removeItem(String itemName){
+    public void removeItem(Item itemName){
         items.remove(itemName);
     }
 

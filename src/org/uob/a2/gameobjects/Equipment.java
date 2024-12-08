@@ -9,6 +9,12 @@ public class Equipment extends GameObject implements Usable {
      * @return a string describing the equipment
      */
 
+    String id;
+    String name;
+    String description;
+    boolean hidden;
+    UseInformation useInformation;
+
     public Equipment(String id, String name, String description, boolean hidden, UseInformation useInformation){
         this.id = id;
         this.name = name;
@@ -16,10 +22,12 @@ public class Equipment extends GameObject implements Usable {
         this.useInformation = useInformation;
     }
 
+    @Override
     public UseInformation getUseInformation(){
         return useInformation;
     }
 
+    @Override
     public void setUseInformation(UseInformation useInformation){
     }
 
