@@ -20,13 +20,14 @@ public class Map {
     int height = 5;
     int width = 9;
 
-    public Map(){
+    public Map() {
         //initialising the map
         mapArray = new String[height][width];
-        for(int y=0; y<height; y++){
-            for(int x=0; x<width; x++){
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
                 map[y][x] = "" + EMPTY;
             }
+        }
     }
 
     public Room getCurrentRoom(){
