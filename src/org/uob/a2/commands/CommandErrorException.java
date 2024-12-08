@@ -8,7 +8,11 @@ package org.uob.a2.commands;
  * </p>
  */
 public class CommandErrorException extends Exception {
+    String error;
 
+    public CommandErrorException(String error) {
+        this.error = error;
+    }
 
     /**
      * Returns a string representation of the exception, including its message.

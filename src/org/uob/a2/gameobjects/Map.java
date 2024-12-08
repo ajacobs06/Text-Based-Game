@@ -15,7 +15,44 @@ import org.uob.a2.utils.*;
  * </p>
  */
 public class Map {
-  
+    String[][] mapArray;
+    final char EMPTY = '.';
+    int height = 5;
+    int width = 9;
+
+    public Map(){
+        //initialising the map
+        mapArray = new String[height][width];
+        for(int y=0; y<height; y++){
+            for(int x=0; x<width; x++){
+                map[y][x] = "" + EMPTY;
+            }
+    }
+
+    public getCurrentRoom(){
+
+    }
+
+    public void addRoom(Room room){
+
+    }
+
+    public void setCurrentRoom(){
+
+    }
+
+    public String display() {
+        displayMap = "";
+        for(int y=0; y<height; y++) {
+            for (int x = 0; x < width; x++) {
+                displayMap = displayMap + map[y][x];
+            }
+            displayMap = displayMap + "\n";
+        }
+        return displayMap;
+    }
+
+
     /**
      * Returns a string representation of the map, including all rooms.
      *

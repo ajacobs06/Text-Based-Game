@@ -11,6 +11,28 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Drop extends Command {
+    String item;
 
+    public Drop(item) {
+        this.item = item;
+    }
+
+    @Override
+    public String toString(){
+        return "You drop: " + item;
+    }
+
+    public String execute(GameState gameState){
+        if(gameState.getPlayer().hasItem(item)){
+            gameState.getPlayer().removeItem(item);
+            toString();
+        } else if (gameState.getPlayer().hasEquipment(item)) {
+            gameState.getPlayer().removeEquipment(item);
+            toString();
+        }
+        else{
+            System.out.println("You do not have this item to drop!")
+        }
+    }
    
 }

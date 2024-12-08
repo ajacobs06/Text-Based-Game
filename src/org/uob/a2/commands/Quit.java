@@ -12,5 +12,11 @@ import org.uob.a2.gameobjects.*;
  */
 public class Quit extends Command {
 
- 
+    public Quit(){
+    }
+
+    public String execute(){
+
+    }
+
 }

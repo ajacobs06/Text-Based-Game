@@ -9,6 +9,24 @@ package org.uob.a2.parser;
  * </p>
  */
 public class Token {
+    TokenType tokenType;
+    String value;
 
+    public Token(TokenType tokenType, String value){
+        this.tokenType = tokenType;
+        this.value = value;
+    }
+
+    public Token(TokenType tokenType){
+        this.tokenType = tokenType;
+    }
+
+    public TokenType getTokenType(){
+        return tokenType;
+    }
+
+    public String getValue(){
+        return value;
+    }
    
 }

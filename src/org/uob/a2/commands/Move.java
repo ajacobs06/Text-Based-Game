@@ -11,6 +11,17 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Move extends Command {
+    String direction;
 
-  
+    public Move(String direction) {
+        this.direction = direction;
+    }
+
+    public String toString(){
+
+    }
+
+    public void execute(GameState gameState) {
+    }
+
 }

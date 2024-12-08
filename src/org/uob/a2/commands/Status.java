@@ -12,6 +12,38 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Status extends Command {
+    String topic;
 
-  
+    public Status(String topic) {
+        this.topic = topic;
+    }
+
+    public String toString(){
+
+    }
+
+    public String execute(GameState gameState) {
+        if(topic == "inventory") {
+            ArrayList<Equipment> equipment = gameState.getPlayer().getEquipment();
+            ArrayList<Item> items = gameState.getPlayer().getInventory();
+            String inventory = "";
+            for (Item i : items) {
+                inventory = inventory + i.getName();
+            }
+            for (Equipment i : equipment) {
+                inventory = inventory + i.getName();
+            }
+            return inventory;
+        }
+        else if(/*is an item*/){
+            return description;
+        }
+        else if(topic == "player"){
+            return gameState.getPlayer().toString();
+        }
+        else{
+            return "Invalid status argument.";
+        }
+    }
+
 }

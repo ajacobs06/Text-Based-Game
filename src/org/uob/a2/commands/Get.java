@@ -12,6 +12,29 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Get extends Command {
+    String item;
 
+    public Get(item){
+        this.item = item;
+    }
+
+    public String toString(){
+        return "You pick up: " + item;
+    }
+
+    public String execute(GameState gameState){
+        if(currentRoom.hasItem(item)){
+            if(!gameState.getPlayer().hasItem(item)) {
+                toString();
+                gameState.getPlayer().getItem(item);
+            }
+            else{
+                System.out.println("You already have this item!";
+            }
+        }
+        else{
+            System.out.println("There is no " + item + " in the room.");
+        }
+    }
    
 }

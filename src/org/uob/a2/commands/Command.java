@@ -11,5 +11,13 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public abstract class Command {
+    CommandType commandType;
+    String value;
+
+    public Command(){
+    }
+
+    public abstract String execute(GameState gameState){
+    }
 
 }

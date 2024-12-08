@@ -11,6 +11,32 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Look extends Command {
+    String target;
 
+    public Look(String target) {
+        this.target = target;
+    }
+
+    public String toString(){
+    }
+
+    public void execute(GameState gameState) {
+        switch (target) {
+            case "room":
+                gameState.getCurrentRoom().getDescription();
+                break;
+            case "exits":
+                gameState.getCurrentRoom().getExits();
+                break;
+            case "features":
+                gameState.getCurrentRoom().getFeatures();
+                break;
+            default:
+                if(/*target is an item/equipment/feature*/){
+                    /* get description */
+                }
+        }
+
+    }
    
 }

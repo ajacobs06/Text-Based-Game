@@ -12,5 +12,48 @@ import java.util.ArrayList;
  */
 public class Tokeniser {
 
-   
+   public Tokeniser() {
+   }
+
+   public ArrayList<Token> getTokens(){
+       return tokens;
+   }
+
+   public String sanitise(String s){
+          String lowercase_S = s.toLowerCase();
+          String sanitisedStrig = lowercase_S.replaceAll(" ", "");
+          return sanitisedString;
+   }
+
+   public void tokenise(String s){
+       int counter = 0
+       String[] sSplit = s.split(" ");
+       String[] vars = new String[10];
+       for(int i = 0; i < sSplit.length; i++){
+           sSplit[i] = sSplit[i].toLowerCase();
+       }
+       String s = sanitise(s);
+       ArrayList<Token> tokens = new ArrayList<Token>();
+       for(String i : sSplit){
+           for(TokenType t : TokenType.values()){
+               if(i.equalsIgnoreCase(TokenType.t.toString())){
+                   tokens.add(new Token(TokenType.t));
+               }
+               else if(i.equalsIgnoreCase("with") || i.equalsIgnoreCase("on")){
+                   tokens.add(new Token(TokenType.PREPOSITION))
+               }
+               else{
+                   vars[counter] = i;
+                   counter++;
+               }
+           }
+       }
+       for(String i : vars){
+           if(i != null) {
+               tokens.add(new Token(TokenType.VAR, i));
+           }
+       }
+       tokens.add(new Token(TokenType.EOL));
+   }
+
 }
