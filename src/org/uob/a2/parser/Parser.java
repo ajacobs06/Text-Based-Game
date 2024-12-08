@@ -3,6 +3,7 @@ package org.uob.a2.parser;
 import java.util.ArrayList;
 
 import org.uob.a2.commands.*;
+import.org.uob.a2.gameobjects.*
 
 /**
  * The {@code Parser} class processes a list of tokens and converts them into {@code Command} objects
@@ -30,7 +31,7 @@ public class Parser {
         }
         for(Token token : variables){
             if(equipmentList.isEquipment(token.getValue())){
-                Equipment equipment = equipmentList.getEquipment(token.getValue);
+                Equipment equipment = equipmentList.getEquipment(token.getValue());
             } else if (itemList.isEquipment(token.getValue())) {
                 Item item = item.getItem(token.getValue());
             }

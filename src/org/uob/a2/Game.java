@@ -2,6 +2,7 @@ package org.uob.a2;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.File;
 
 import org.uob.a2.commands.*;
 import org.uob.a2.gameobjects.*;
@@ -35,9 +36,10 @@ public class Game {
             String line = fileInput.nextLine();
             String[] lineSplit = line.split(":");
             String[] objectParts = lineSplit[1].split(",");
+            boolean hidden = Boolean.parseBoolean(lineSplit[3]);
             switch(lineSplit[0]){
                 case "player":
-                    Player player = new PLayer(lineSplit[1]);
+                    Player player = new Player(lineSplit[1]);
                     break;
                 case "room":
                     roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));

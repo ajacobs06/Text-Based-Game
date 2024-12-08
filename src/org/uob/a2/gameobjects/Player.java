@@ -17,7 +17,6 @@ public class Player {
     ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     boolean present = false;
     String name;
-    public Player(){}
 
     public Player(){}
 

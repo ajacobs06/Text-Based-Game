@@ -18,7 +18,7 @@ public class Room extends GameObject {
     ArrayList<Exit> exitsList = new ArrayList<Exit>();
     ArrayList<Item> items = new ArrayList<Item>();
     ArrayList<Feature> features = new ArrayList<Feature>();
-    ArraList<Equipment> equipmentList = new ArrayList<Equipment>();
+    ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 
