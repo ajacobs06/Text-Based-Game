@@ -36,25 +36,25 @@ public class Game {
             String line = fileInput.nextLine();
             String[] lineSplit = line.split(":");
             String[] objectParts = lineSplit[1].split(",");
-            boolean hidden = Boolean.parseBoolean(lineSplit[3]);
+            boolean hidden = Boolean.parseBoolean(objectParts[3]);
             switch(lineSplit[0]){
                 case "player":
                     Player player = new Player(lineSplit[1]);
                     break;
                 case "room":
-                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
+                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden);
                     break;
                 case "equipment":
-                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], objectParts[3], objectParts[4], objectParts[5]));
+                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, objectParts[4], objectParts[5]));
                     break;
                 case "container":
-                    containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
+                    containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], hidden));
                     break;
                 case "exit":
-                    exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], objectParts[3], objectParts[4]));
+                    exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], hidden, objectParts[4]));
                     break;
                 case "feature":
-                    featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
+                    featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], hidden));
 
             }
 
