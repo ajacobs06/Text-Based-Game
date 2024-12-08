@@ -34,7 +34,7 @@ public class Game {
         File textFile = new File("game.txt");
         Scanner fileInput = new Scanner(textFile);
         while(fileInput.hasNextLine()){
-            int counter = 0
+            int counter = 0;
             String line = fileInput.nextLine();
             String[] lineSplit = line.split(":");
             String[] objectParts = lineSplit[1].split(",");
