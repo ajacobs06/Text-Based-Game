@@ -22,7 +22,7 @@ public class Game {
 
     public static void main(String[] args){
 
-        setup(){
+        public static void setup(){
 
             ArrayList<Room> roomArrayList = new ArrayList<Room>();
             ArrayList<Equipment> equipmentArrayList = new ArrayList<Equipment>();
@@ -64,6 +64,8 @@ public class Game {
 
             System.out.println(roomArrayList.size());
         }
+
+        setup();
 
     }
 

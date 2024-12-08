@@ -29,15 +29,14 @@ public class Map {
             }
     }
 
-    public void getCurrentRoom(){
-
+    public Room getCurrentRoom(){
     }
 
     public void addRoom(Room room){
 
     }
 
-    public void setCurrentRoom(){
+    public void setCurrentRoom(String roomId){
 
     }
 

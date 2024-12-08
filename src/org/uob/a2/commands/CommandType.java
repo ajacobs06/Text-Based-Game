@@ -48,19 +48,3 @@ public enum CommandType {
      */
     QUIT,
 }
-
-/*public static CommandType[] values(){
-    return CommandType.values();
-}
-
-public static CommandType valueOf(String name) throws IllegalArgumentException, NullPointerException {
-    if (name == null) {
-        throw new NullPointerException()
-    }
-    else if(CommandType.valueOf(name) == null){
-        throw new IllegalArgumentException();
-    }
-    else{
-    return CommandType.valueOf(e.getMessage());
-    }
-}
