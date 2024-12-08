@@ -31,6 +31,8 @@ public class Game {
         ArrayList<Item> itemArrayList = new ArrayList<Item>();
         ArrayList<UseInformation> useInformationArrayList = new ArrayList<UseInformation>();
 
+        boolean hidden;
+
         File textFile = new File("game.txt");
         Scanner fileInput = new Scanner(textFile);
         while(fileInput.hasNextLine()){
@@ -40,7 +42,6 @@ public class Game {
             String[] objectParts = lineSplit[1].split(",");
             for(int i=0; i<objectParts.length; i++){
                 if(objectParts[i].equalsIgnoreCase("true") || objectParts[i].equalsIgnoreCase("false")){
-                    boolean hidden = new boolean;
                     hidden = Boolean.parseBoolean(objectParts[i]);
                 }
             }
@@ -53,7 +54,7 @@ public class Game {
                     break;
                 case "equipment":
                     useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]));
-                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList.get(counter));
+                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList.get(counter)));
                     equipmentList.addEquipment(equipmentArrayList.get(counter));
                     break;
                 case "container":
