@@ -14,8 +14,6 @@ public class Equipment extends GameObject implements Usable {
         this.name = name;
         this.description = description;
         this.useInformation = useInformation;
-
-        equipmentList.addEquipment(Equipment);
     }
 
     public UseInformation getUseInformation(){
