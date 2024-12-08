@@ -36,7 +36,7 @@ public abstract class GameObject {
         return id;
     }
 
-    public void getName(){
+    public String getName(){
         return name;
     }
 

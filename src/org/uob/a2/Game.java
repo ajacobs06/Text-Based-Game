@@ -40,7 +40,8 @@ public class Game {
             String[] objectParts = lineSplit[1].split(",");
             for(int i=0; i<objectParts.length; i++){
                 if(objectParts[i].equalsIgnoreCase("true") || objectParts[i].equalsIgnoreCase("false")){
-                    boolean hidden = Boolean.parseBoolean(objectParts[i]);
+                    boolean hidden = new boolean;
+                    hidden = Boolean.parseBoolean(objectParts[i]);
                 }
             }
             switch(lineSplit[0]){
@@ -52,7 +53,8 @@ public class Game {
                     break;
                 case "equipment":
                     useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]));
-                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList[counter]));
+                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList.get(counter));
+                    equipmentList.addEquipment(equipmentArrayList.get(counter));
                     break;
                 case "container":
                     containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], hidden));
@@ -62,6 +64,11 @@ public class Game {
                     break;
                 case "feature":
                     featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], hidden));
+                    break;
+                case "item":
+                    itemArrayList.add(new Item(objectParts[0], objectParts[1], objectParts[2], hidden));
+                    itemList.addItem(itemArrayList.get(counter));
+                    break;
 
             }
             counter++;

@@ -34,8 +34,8 @@ public class Player {
 
     public boolean hasItem(String itemName){
         present = false;
-        for(Item i : Item){
-            if(i.equals(itemName)){
+        for(Item i : items){
+            if(i.getName().equals(itemName)){
                 present = true;
             }
         }
@@ -45,7 +45,7 @@ public class Player {
     public Item getItem(String itemName){
         if(hasItem(itemName)){
             for(Item i : items)
-                if(i == itemName){
+                if(i.getName() == itemName){
                     return i;
                 }
         }
@@ -104,11 +104,11 @@ public class Player {
     @Override
     public String toString() {
         StringBuilder out = new StringBuilder("Player Name: " + this.name + "\nInventory:\n");
-        for (Item i : this.inventory) {
+        for (Item i : this.items) {
             out.append("- ").append(i.getDescription()).append("\n");
         }
         out.append("Equipment:\n");
-        for (Equipment e : this.equipment) {
+        for (Equipment e : this.equipmentList) {
             out.append("- ").append(e.getDescription()).append("\n");
         }
         return out.toString();

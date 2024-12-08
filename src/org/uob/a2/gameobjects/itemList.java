@@ -17,7 +17,7 @@ public class itemList {
         }
     }
 
-    public void addItem(String item){
+    public void addItem(Item item){
         itemList.add(item);
     }
 

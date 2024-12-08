@@ -19,8 +19,6 @@ public class Item extends GameObject {
         this.name = name;
         this.description = description;
         this.hidden = hidden;
-
-        itemList.addItem(Item);
     }
 
 
