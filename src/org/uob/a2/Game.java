@@ -42,7 +42,7 @@ public class Game {
                     Player player = new Player(lineSplit[1]);
                     break;
                 case "room":
-                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden);
+                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden));
                     break;
                 case "equipment":
                     equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, objectParts[4], objectParts[5]));
