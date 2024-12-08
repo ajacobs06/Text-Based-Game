@@ -48,20 +48,20 @@ public class Game {
                     Player player = new Player(lineSplit[1]);
                     break;
                 case "room":
-                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
+                    roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden));
                     break;
                 case "equipment":
                     useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]));
-                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], objectParts[3], useInformationArrayList[counter]));
+                    equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList[counter]));
                     break;
                 case "container":
-                    containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
+                    containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], hidden));
                     break;
                 case "exit":
-                    exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], objectParts[3], objectParts[4]));
+                    exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], objectParts[3], hidden));
                     break;
                 case "feature":
-                    featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
+                    featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], hidden));
 
             }
             counter++;
