@@ -51,7 +51,7 @@ public class Game {
                     roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], objectParts[3]));
                     break;
                 case "equipment":
-                    useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]))
+                    useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]));
                     equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], objectParts[3], useInformationArrayList[counter]));
                     break;
                 case "container":
