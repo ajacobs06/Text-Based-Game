@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class equipmentList {
 
     static ArrayList<Equipment> equipment = new ArrayList<Equipment>();
+    Equipment present;
 
     public equipmentList() {
     }
@@ -25,9 +26,10 @@ public class equipmentList {
     public static Equipment getEquipment(String equipmentInput){
         for(Equipment i : equipment){
             if(i.getName() == equipmentInput){
-                return i;
+                present = i;
             }
         }
+        return present;
     }
 
 
