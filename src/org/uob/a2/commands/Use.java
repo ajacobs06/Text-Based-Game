@@ -26,7 +26,7 @@ public class Use extends Command {
 
     @Override
     public String execute(GameState gameState){
-
+        return "Executing USE";
     }
   
 }
