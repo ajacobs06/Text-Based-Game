@@ -15,8 +15,6 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Parser {
-    Equipment equipment;
-    Item item;
 
     public Parser(){
 
@@ -40,27 +38,31 @@ public class Parser {
                 break;
             case HELP:
                 Help help = new Help(tokens.get(1).getValue());
+                return help;
                 break;
             case LOOK:
                 Look look = new Look(tokens.get(1).getValue());
+                return look;
                 break;
             case MOVE:
                 Move move = new Move(tokens.get(1).getValue());
+                return move;
                 break;
             case QUIT:
                 Quit quit = new Quit();
+                return quit;
                 break;
             case STATUS:
                 Status status = new Status(tokens.get(1).getValue());
+                return status;
                 break;
             case USE:
-                if(equipment != null) {
-                    Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
-                }
+                Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
+                return use;
                 break;
             default:
                 CommandErrorException error = new CommandErrorException("Error");
-                error.toString();
+                return error.toString();
                 break;
         }
     }
