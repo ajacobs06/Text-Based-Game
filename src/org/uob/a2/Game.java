@@ -17,19 +17,38 @@ import org.uob.a2.utils.*;
  * </p>
  */
 public class Game {
-
-    public Game(){
-    }
+    static Scanner input;
+    static Tokeniser tokeniser;
+    static Command userCommand;
+    static Parser parser;
+    static GameState gameState;
 
     public static void setup() {
 
         GameState gameState = GameStateFileParser.parse("game.txt");
+        Scanner input = new Scanner(System.in);
+        Tokeniser tokeniser = new Tokeniser();
 
+    }
+
+    public static void turn(Command command){
+        command.execute(gameState);
+    }
+
+
+    public static void start() {
+        while(gameLoop.getGameLoop()){
+            String userInput = input.nextLine();
+            tokeniser.tokenise(tokeniser.sanitise(userInput));
+            userCommand = parser.parse(tokeniser.getTokens());
+            turn(userCommand);
+        }
     }
 
     public static void main(String[] args){
 
         setup();
+        start();
 
     }
 

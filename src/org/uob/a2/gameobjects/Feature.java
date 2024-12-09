@@ -9,16 +9,9 @@ package org.uob.a2.gameobjects;
  * </p>
  */
 public class Feature extends GameObject {
-    String id;
-    String name;
-    String description;
-    boolean hidden;
 
     public Feature(String id, String name, String description, boolean hidden){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.hidden = hidden;
+        super(id, name, description, hidden);
     }
 
      /**
