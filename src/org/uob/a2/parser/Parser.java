@@ -60,10 +60,6 @@ public class Parser {
                 Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
                 return use;
                 break;
-            default:
-                CommandErrorException error = new CommandErrorException("Error");
-                return error.toString();
-                break;
         }
     }
 
