@@ -32,7 +32,7 @@ public class Move extends Command {
             }
         }
         if (!successfulExit){
-            return "That is an invalid exit."
+            return "That is an invalid exit.";
         }
         else{
             return "Move successful.\nYou are now in the " + gameState.getMap().getCurrentRoom().getName();
