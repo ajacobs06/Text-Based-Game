@@ -164,7 +164,7 @@ public class Room extends GameObject {
 
     public boolean hasItem(String itemName){
         boolean present = false;
-        for(Item i : Item){
+        for(Item i : items){
             if(i.equals(itemName)){
                 present = true;
             }

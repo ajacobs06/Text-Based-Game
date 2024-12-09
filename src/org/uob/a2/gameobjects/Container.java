@@ -11,6 +11,11 @@ package org.uob.a2.gameobjects;
  */
 public class Container extends Feature {
 
+    String id;
+    String name;
+    String description;
+    boolean hidden;
+
     public Container(String id, String name, String description, boolean hidden){
         this.id = id;
         this.name = name;

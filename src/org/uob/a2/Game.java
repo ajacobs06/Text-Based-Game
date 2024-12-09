@@ -23,7 +23,7 @@ public class Game {
 
     public static void setup() {
 
-        GameStateFileParser.parse("game.txt");
+        GameState gameState = GameStateFileParser.parse("game.txt");
 
     }
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class equipmentList {
 
-    ArrayList<Equipment> equipment = new ArrayList<Equipment>();
+    static ArrayList<Equipment> equipment = new ArrayList<Equipment>();
 
     public equipmentList() {
     }

@@ -27,12 +27,12 @@ public class Drop extends Command {
         if(gameState.getPlayer().hasItem(item)){
             Item droppedItem = gameState.getPlayer().getItem(item);
             gameState.getPlayer().removeItem(droppedItem);
-            gameState.getCurrentRoom().addItem(droppedItem);
+            gameState.getMap().getCurrentRoom().addItem(droppedItem);
             toString();
         } else if (gameState.getPlayer().hasEquipment(item)) {
             Equipment droppedItem = gameState.getPlayer().getEquipment(item);
             gameState.getPlayer().removeEquipment(droppedItem);
-            gameState.getCurrentRoom().addEquipment(droppedItem);
+            gameState.getMap().getCurrentRoom().addEquipment(droppedItem);
             toString();
         }
         else{
