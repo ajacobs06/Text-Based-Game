@@ -39,11 +39,11 @@ public class Get extends Command {
                 return toString();
             }
             else{
-                return "You already have this item!";
+                return "You already have " + item;
             }
         }
         else{
-            return "There is no " + item + " in the room.";
+            return "No " + item + " to get.";
         }
     }
    

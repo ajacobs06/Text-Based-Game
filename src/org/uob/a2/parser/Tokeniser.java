@@ -23,14 +23,13 @@ public class Tokeniser {
 
    public String sanitise(String s){
           String lowercase_S = s.toLowerCase();
-          String sanitisedString = lowercase_S.replaceAll(" ", "");
+          String sanitisedString = lowercase_S.trim();
           return sanitisedString;
    }
 
    public void tokenise(String s){
        int counter = 0;
-       String[] sSplit = s.split(" ");
-       String[] vars = new String[10];
+       String[] sSplit = s.split("\\s+");
        for(int i = 0; i < sSplit.length; i++){
            sSplit[i] = sSplit[i].toLowerCase();
        }
@@ -40,18 +39,15 @@ public class Tokeniser {
                if(i.equalsIgnoreCase(t.toString())){
                    tokens.add(new Token(t));
                }
-               else if(i.equalsIgnoreCase("with") || i.equalsIgnoreCase("on")){
-                   tokens.add(new Token(TokenType.PREPOSITION));
+               else if(i.equalsIgnoreCase("with")){
+                   tokens.add(new Token(TokenType.PREPOSITION), "with");
+               }
+               else if(i.equalsIgnoreCase("on")){
+                   tokens.add(new Token(TokenType.PREPOSITION, "on"));
                }
                else{
-                   vars[counter] = i;
-                   counter++;
+                   tokens.add(new Token(TokenType.VAR, i));
                }
-           }
-       }
-       for(String i : vars){
-           if(i != null) {
-               tokens.add(new Token(TokenType.VAR, i));
            }
        }
        tokens.add(new Token(TokenType.EOL));
