@@ -12,6 +12,7 @@ import org.uob.a2.gameobjects.*;
  */
 public class Look extends Command {
     String target;
+    String lookOutput;
 
     public Look(String target) {
         this.target = target;
@@ -19,23 +20,25 @@ public class Look extends Command {
 
     @Override
     public String toString(){
+        return "LOOK " + target;
     }
 
     @Override
     public String execute(GameState gameState) {
         switch (target) {
             case "room":
-                gameState.getMap().getCurrentRoom().getDescription();
+                lookOutput = gameState.getMap().getCurrentRoom().getDescription();
                 break;
             case "exits":
-                gameState.getMap().getCurrentRoom().getExits();
+                lookOutput = gameState.getMap().getCurrentRoom().getExits();
                 break;
             case "features":
-                gameState.getMap().getCurrentRoom().getFeatures();
+                lookOutput = gameState.getMap().getCurrentRoom().getFeatures();
                 break;
             default:
                 break;
         }
+        return lookOutput;
 
     }
    

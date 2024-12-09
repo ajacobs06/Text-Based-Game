@@ -19,7 +19,7 @@ public class Move extends Command {
 
     @Override
     public String toString(){
-
+        return "MOVE " + direction;
     }
 
     @Override

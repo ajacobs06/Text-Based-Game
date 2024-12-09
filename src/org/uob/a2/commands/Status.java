@@ -21,7 +21,7 @@ public class Status extends Command {
 
     @Override
     public String toString(){
-
+        return "STATUS" + topic;
     }
 
     @Override

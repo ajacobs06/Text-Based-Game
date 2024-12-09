@@ -21,7 +21,7 @@ public class Help extends Command {
 
     @Override
     public String toString(){
-        return "Help " + topic;
+        return "HELP " + topic;
     }
 
     @Override
