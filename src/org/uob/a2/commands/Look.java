@@ -12,7 +12,7 @@ import org.uob.a2.gameobjects.*;
  */
 public class Look extends Command {
     String target;
-    String lookOutput;
+    String lookOutput = "";
 
     public Look(String target) {
         this.target = target;
