@@ -12,7 +12,7 @@ public class Equipment extends GameObject implements Usable {
     protected UseInformation useInformation;
 
     public Equipment(String id, String name, String description, boolean hidden, UseInformation useInformation){
-        super(id, name, description, hidden)
+        super(id, name, description, hidden);
         this.useInformation = useInformation;
     }
 
@@ -27,7 +27,7 @@ public class Equipment extends GameObject implements Usable {
     }
 
     public String use(GameObject target, GameState gameState){
-        return "Using Equipment Test"
+        return "Using Equipment Test";
     }
 
     @Override
