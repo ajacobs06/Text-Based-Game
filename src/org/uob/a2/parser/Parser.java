@@ -29,54 +29,37 @@ public class Parser {
                 variables.add(i);
             }
         }
-        for(Token token : variables){
-            if(equipmentList.isEquipment(token.getValue())){
-                Equipment equipment = equipmentList.getEquipment(token.getValue());
-            } else if (itemList.isItem(token.getValue())) {
-                Item item = itemList.getItem(token.getValue());
-            }
-        }
         switch(tokens.get(0).getTokenType()){
-            case TokenType.DROP:
-                if(equipment != null) {
-                    Drop drop = new Drop(equipment);
-                }
-                else if(item != null) {
-                    Drop drop = new Drop(item);
-                }
+            case DROP:
+                Drop drop = new Drop(variables.get(0).getValue());
                 return drop;
                 break;
-            case TokenType.GET:
-                if(equipment != null) {
-                    Get get = new Get(equipment);
-                }
-                else if(item != null) {
-                    Get get = new Get(item);
-                }
+            case GET:
+                Get get = new Get(variables.get(0).getValue());
                 return get;
                 break;
-            case TokenType.HELP:
+            case HELP:
                 Help help = new Help(tokens.get(1).getValue());
                 break;
-            case TokenType.LOOK:
+            case LOOK:
                 Look look = new Look(tokens.get(1).getValue());
                 break;
-            case TokenType.MOVE:
+            case MOVE:
                 Move move = new Move(tokens.get(1).getValue());
                 break;
-            case TokenType.QUIT:
+            case QUIT:
                 Quit quit = new Quit();
                 break;
-            case TokenType.STATUS:
+            case STATUS:
                 Status status = new Status(tokens.get(1).getValue());
                 break;
-            case TokenType.USE:
+            case USE:
                 if(equipment != null) {
-                    Use use = new Use(equipment, variables.get(1).getValue());
+                    Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
                 }
                 break;
             default:
-                CommandErrorException error = new CommandErrorException();
+                CommandErrorException error = new CommandErrorException("Error");
                 error.toString();
                 break;
         }

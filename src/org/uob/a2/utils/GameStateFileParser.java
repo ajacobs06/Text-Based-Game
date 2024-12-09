@@ -3,6 +3,7 @@ package org.uob.a2.utils;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import org.uob.a2.gameobjects.*;
 
@@ -49,7 +50,7 @@ public class GameStateFileParser {
                     roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden));
                     break;
                 case "equipment":
-                    useInformationArrayList.add(new UseInformation(false, objectParts[5], objectParts[6], objectParts[7]));
+                    useInformationArrayList.add(new UseInformation(false, objectParts[4], objectParts[5], objectParts[6], objectParts[7]));
                     equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList.get(counter)));
                     equipmentList.addEquipment(equipmentArrayList.get(counter));
                     break;

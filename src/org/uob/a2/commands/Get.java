@@ -28,14 +28,22 @@ public class Get extends Command {
         if(gameState.getMap().getCurrentRoom().hasItem(item)){
             if(!gameState.getPlayer().hasItem(item)) {
                 toString();
-                gameState.getPlayer().getItem(item);
+                gameState.getPlayer().addItem(item);
             }
             else{
-                System.out.println("You already have this item!");
+                return "You already have this item!";
+            }
+        } else if(gameState.getMap().getCurrentRoom().hasEquipment(item)){
+            if(!gameState.getPlayer().hasEquipment(item)){
+                toString();
+                gameState.getPlayer().addEquipment(item);
+            }
+            else{
+                return "You already have this item!";
             }
         }
         else{
-            System.out.println("There is no " + item + " in the room.");
+            return "There is no " + item + " in the room.";
         }
     }
    

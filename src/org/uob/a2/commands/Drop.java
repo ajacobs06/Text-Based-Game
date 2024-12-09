@@ -28,15 +28,15 @@ public class Drop extends Command {
             Item droppedItem = gameState.getPlayer().getItem(item);
             gameState.getPlayer().removeItem(droppedItem);
             gameState.getMap().getCurrentRoom().addItem(droppedItem);
-            toString();
+            return toString();
         } else if (gameState.getPlayer().hasEquipment(item)) {
             Equipment droppedItem = gameState.getPlayer().getEquipment(item);
             gameState.getPlayer().removeEquipment(droppedItem);
             gameState.getMap().getCurrentRoom().addEquipment(droppedItem);
-            toString();
+            return toString();
         }
         else{
-            System.out.println("You do not have this item to drop!");
+            return "You do not have this item to drop!";
         }
     }
    

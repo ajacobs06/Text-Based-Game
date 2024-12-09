@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 public class Tokeniser {
 
+    ArrayList<Token> tokens = new ArrayList<Token>();
+
    public Tokeniser() {
    }
 
@@ -21,7 +23,7 @@ public class Tokeniser {
 
    public String sanitise(String s){
           String lowercase_S = s.toLowerCase();
-          String sanitisedStrig = lowercase_S.replaceAll(" ", "");
+          String sanitisedString = lowercase_S.replaceAll(" ", "");
           return sanitisedString;
    }
 
@@ -32,12 +34,11 @@ public class Tokeniser {
        for(int i = 0; i < sSplit.length; i++){
            sSplit[i] = sSplit[i].toLowerCase();
        }
-       String s = sanitise(s);
-       ArrayList<Token> tokens = new ArrayList<Token>();
+       String s_sanitised = sanitise(s);
        for(String i : sSplit){
            for(TokenType t : TokenType.values()){
-               if(i.equalsIgnoreCase(TokenType.t.toString())){
-                   tokens.add(new Token(TokenType.t));
+               if(i.equalsIgnoreCase(t.toString())){
+                   tokens.add(new Token(t));
                }
                else if(i.equalsIgnoreCase("with") || i.equalsIgnoreCase("on")){
                    tokens.add(new Token(TokenType.PREPOSITION));

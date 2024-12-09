@@ -10,7 +10,7 @@ public class itemList {
     }
 
     public static boolean isItem(String item){
-        if(getObject(item) == null){
+        if(getItem(item) == null){
             return false;
         }
         else{
@@ -22,7 +22,7 @@ public class itemList {
         itemArrayList.add(item);
     }
 
-    public static Item getObject(String item){
+    public static Item getItem(String item){
         for(Item i : itemArrayList){
             if(i.getName() == item){
                 return i;
