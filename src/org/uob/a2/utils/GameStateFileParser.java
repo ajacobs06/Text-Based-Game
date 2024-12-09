@@ -81,9 +81,9 @@ public class GameStateFileParser {
             return gameState;
         }
 
-        catch(FileNotFoundException){
-                System.out.println("File not found");
-        return null
+        catch(FileNotFoundException e){
+            System.out.println("File not found");
+            return null;
         }
 
     }
