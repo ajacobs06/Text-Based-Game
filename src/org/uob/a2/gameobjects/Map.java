@@ -16,18 +16,18 @@ import org.uob.a2.utils.*;
  * </p>
  */
 public class Map {
-    public Map() {
-        //initialising the map
 
-        ArrayList<Room> map = new ArrayList<Room>();
-        String[][] roomDisplay = new String[5][9];
-        Room currentRoom;
-        int roomCounter = 0;
+    ArrayList<Room> map = new ArrayList<Room>();
+    String[][] roomDisplay = new String[5][9];
+    Room currentRoom;
+    int roomCounter = 0;
+
+    public Map() {
 
     }
 
     public Room getCurrentRoom(){
-        return currentRoom();
+        return currentRoom;
     }
 
     public void addRoom(Room room){
