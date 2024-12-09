@@ -78,6 +78,7 @@ public class Game {
         }
         Map map = new Map();
         GameState gameState = new GameState(map, player);
+        map.setCurrentRoom(r1);
 
         System.out.println(roomArrayList);
         System.out.println(equipmentArrayList);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.*;
 import java.nio.file.*;
+import java.lang.StringBuilder;
 
 import org.uob.a2.utils.*;
 
@@ -15,41 +16,58 @@ import org.uob.a2.utils.*;
  * </p>
  */
 public class Map {
-    String[][] mapArray;
-    final char EMPTY = '.';
-    int height = 5;
-    int width = 9;
-
     public Map() {
         //initialising the map
-        mapArray = new String[height][width];
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                map[y][x] = "" + EMPTY;
-            }
-        }
+
+        ArrayList<Room> map = new ArrayList<Room>();
+        String[][] roomDisplay = new String[5][9];
+        Room currentRoom;
+        int roomCounter = 0;
+
     }
 
     public Room getCurrentRoom(){
+        return currentRoom();
     }
 
     public void addRoom(Room room){
-
+        map.add(room);
+        roomCounter++;
     }
 
     public void setCurrentRoom(String roomId){
-
+        for(Room r : map){
+            if(r.getId() == roomId){
+                currentRoom = r;
+            }
+        }
     }
 
-    public String display() {
-        displayMap = "";
-        for(int y=0; y<height; y++) {
-            for (int x = 0; x < width; x++) {
-                displayMap = displayMap + map[y][x];
+    public String display(){
+        for(int y = 0; y < 5; y++){
+            roomDisplay[y][0] = "|";
+            roomDisplay[y][8] = "|";
+            for(int x = 1; x < 8; x++){
+                roomDisplay[y][x] = " ";
             }
-            displayMap = displayMap + "\n";
         }
-        return displayMap;
+        for(int x = 0; x < 9; x++){
+            roomDisplay[0][x] = "-";
+            roomDisplay[4][x] = "-";
+            }
+        StringBuilder strbuildDisplay = new StringBuilder();
+        for(int y = 0; y < 5; y++){
+            for(int x = 0; x < 9; x++){
+                strbuildDisplay.append(roomDisplay[y][x])
+            }
+            strbuildDisplay.append("\n");
+        }
+        for(int i=0; i<roomCounter; i++){
+            strbuildDisplay.append("\n");
+            strbuildDisplay.append(strbuildDisplay.toString())
+        }
+        String strDisplay = strbuildDisplay.toString();
+        return strDisplay;
     }
 
 
