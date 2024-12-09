@@ -19,7 +19,7 @@ public class Map {
 
     ArrayList<Room> map = new ArrayList<Room>();
     String[][] roomDisplay = new String[5][9];
-    Room currentRoom = new Room(null, null, null, null);
+    Room currentRoom = new Room(null, null, null, false);
     int roomCounter = 0;
 
     public Map() {
