@@ -27,7 +27,7 @@ public class Move extends Command {
     public String execute(GameState gameState) {
         for (int i = 0; i < gameState.getMap().getCurrentRoom().getExits().size(); i++){
             if (gameState.getMap().getCurrentRoom().getExits().get(i).getName().equalsIgnoreCase(direction)) {
-                gameState.getMap().setCurrentRoom(gameState.getCurrentRoom().getExits().get(i).getNextRoom());
+                gameState.getMap().setCurrentRoom(gameState.getMap().getCurrentRoom().getExits().get(i).getNextRoom());
                 successfulExit = true;
             }
         }
