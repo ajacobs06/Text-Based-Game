@@ -31,35 +31,27 @@ public class Parser {
             case DROP:
                 Drop drop = new Drop(variables.get(0).getValue());
                 return drop;
-                break;
             case GET:
                 Get get = new Get(variables.get(0).getValue());
                 return get;
-                break;
             case HELP:
                 Help help = new Help(tokens.get(1).getValue());
                 return help;
-                break;
             case LOOK:
                 Look look = new Look(tokens.get(1).getValue());
                 return look;
-                break;
             case MOVE:
                 Move move = new Move(tokens.get(1).getValue());
                 return move;
-                break;
             case QUIT:
                 Quit quit = new Quit();
                 return quit;
-                break;
             case STATUS:
                 Status status = new Status(tokens.get(1).getValue());
                 return status;
-                break;
             case USE:
                 Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
                 return use;
-                break;
         }
     }
 
