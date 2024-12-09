@@ -17,10 +17,7 @@ public class Container extends Feature {
     boolean hidden;
 
     public Container(String id, String name, String description, boolean hidden){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.hidden = hidden;
+        super(String id, String name, String description, boolean hidden);
     }
 
     public String getName(){

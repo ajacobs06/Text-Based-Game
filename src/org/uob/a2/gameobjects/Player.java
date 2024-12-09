@@ -17,6 +17,8 @@ public class Player {
     ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     boolean present = false;
     String name;
+    Equipment placeHolderEq;
+    Item placeHolderI;
 
     public Player(){}
 
@@ -44,14 +46,16 @@ public class Player {
 
     public Item getItem(String itemName){
         if(hasItem(itemName)){
-            for(Item i : items)
-                if(i.getName() == itemName){
-                    return i;
+            for(Item i : items){
+                if(i.getName() == itemName) {
+                    placeHolderI = i;
                 }
+            }
         }
         else{
-            return null;
+            placeHolderI = null;
         }
+        return placeHolderI;
     }
 
     public void addItem(Item item){
@@ -75,12 +79,13 @@ public class Player {
     public Equipment getEquipment(String equipment){
         if(hasEquipment(equipment)){
             for(Equipment i : equipmentList){
-                return i;
+                placeHolderEq = i;
             }
         }
         else{
-            return null;
+            placeHolderEq = null;
         }
+        return placeHolderEq;
     }
 
     public void addEquipment(Equipment equipment){

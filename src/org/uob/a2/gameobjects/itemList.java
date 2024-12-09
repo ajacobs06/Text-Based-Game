@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class itemList {
 
-    ArrayList<Item> itemArrayList = new ArrayList<Item>();
+    static ArrayList<Item> itemArrayList = new ArrayList<Item>();
 
     public itemList(){
     }

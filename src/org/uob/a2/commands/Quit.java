@@ -15,8 +15,8 @@ public class Quit extends Command {
     public Quit(){
     }
 
-    //@Override
-    public String execute(){
+    @Override
+    public String execute(GameState gameState){
         return "Quitting game.\n" + gameState.getPlayer().toString();
     }
 

@@ -17,12 +17,12 @@ public class Move extends Command {
         this.direction = direction;
     }
 
-    //@Override
+    @Override
     public String toString(){
 
     }
 
-    //@Override
+    @Override
     public String execute(GameState gameState) {
     }
 
