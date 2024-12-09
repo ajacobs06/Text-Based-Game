@@ -11,13 +11,8 @@ package org.uob.a2.gameobjects;
  */
 public class Container extends Feature {
 
-    String id;
-    String name;
-    String description;
-    boolean hidden;
-
     public Container(String id, String name, String description, boolean hidden){
-        super(String id, String name, String description, boolean hidden);
+        super(id, name, description, hidden);
     }
 
     public String getName(){
