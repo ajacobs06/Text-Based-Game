@@ -19,8 +19,8 @@ public class Map {
 
     ArrayList<Room> map = new ArrayList<Room>();
     String[][] roomDisplay = new String[5][9];
-    Room currentRoom;
     int roomCounter = 0;
+    Room currentRoom = new Room("r1","test room","This is a test room for testing. It's bland.",false);
 
     public Map() {
 

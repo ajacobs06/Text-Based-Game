@@ -17,38 +17,39 @@ import org.uob.a2.utils.*;
  * </p>
  */
 public class Game {
-    static Scanner input;
-    static Tokeniser tokeniser;
     static Command userCommand;
-    static Parser parser;
-    static GameState gameState;
+    static Parser parser = new Parser();
+
+    static GameState gameState = GameStateFileParser.parse("C:\\Users\\artyb\\OneDrive\\University\\Computer Science\\OOP\\Assignment 2\\data\\game.txt");
+    static Scanner input = new Scanner(System.in);
+    static Tokeniser tokeniser = new Tokeniser();
 
     public static void setup() {
+    }
 
-        GameState gameState = GameStateFileParser.parse("game.txt");
-        Scanner input = new Scanner(System.in);
-        Tokeniser tokeniser = new Tokeniser();
-
+    public static void start() {
     }
 
     public static void turn(Command command){
-        command.execute(gameState);
-    }
 
-
-    public static void start() {
-        while(gameLoop.getGameLoop()){
-            String userInput = input.nextLine();
-            tokeniser.tokenise(tokeniser.sanitise(userInput));
-            userCommand = parser.parse(tokeniser.getTokens());
-            turn(userCommand);
-        }
     }
 
     public static void main(String[] args){
+        System.out.println("Game Start.");
+        while(gameLoop.getGameLoop()){
+            System.out.println("Please enter a command:");
+            String userInput = input.nextLine();
+            tokeniser.tokenise(tokeniser.sanitise(userInput));
+            try {
+                userCommand = parser.parse(tokeniser.getTokens());
+            }
+            catch(CommandErrorException e){
+                System.out.println("Invalid command");
+            }
+            System.out.println(userCommand.execute(gameState));
+            tokeniser.clearTokens();
+        }
 
-        setup();
-        start();
 
     }
 

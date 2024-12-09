@@ -29,8 +29,8 @@ public class GameStateFileParser {
         ArrayList<UseInformation> useInformationArrayList = new ArrayList<UseInformation>();
 
         boolean hidden = false;
-        Player player;
-        Map map;
+        Player player = new Player("placeholder");
+        Map map = new Map();
 
         try {
             File textFile = new File(filename);
@@ -38,6 +38,7 @@ public class GameStateFileParser {
             while (fileInput.hasNextLine()) {
                 int counter = 0;
                 String line = fileInput.nextLine();
+                line = line.trim();
                 String[] lineSplit = line.split(":");
                 String[] objectParts = lineSplit[1].split(",");
                 for (int i = 0; i < objectParts.length; i++) {
@@ -51,6 +52,7 @@ public class GameStateFileParser {
                         break;
                     case "room":
                         roomArrayList.add(new Room(objectParts[0], objectParts[1], objectParts[2], hidden));
+                        map.addRoom(roomArrayList.get(roomArrayList.size()-1));
                         break;
                     case "equipment":
                         useInformationArrayList.add(new UseInformation(false, objectParts[4], objectParts[5], objectParts[6], objectParts[7]));

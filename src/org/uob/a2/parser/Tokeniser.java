@@ -27,27 +27,48 @@ public class Tokeniser {
           return sanitisedString;
    }
 
+   public void clearTokens(){
+       tokens.clear();
+   }
+
    public void tokenise(String s){
        int counter = 0;
-       String[] sSplit = s.split("\\s+");
-       for(int i = 0; i < sSplit.length; i++){
-           sSplit[i] = sSplit[i].toLowerCase();
-       }
        String s_sanitised = sanitise(s);
+       String[] sSplit = s_sanitised.split("\\s+");
        for(String i : sSplit){
-           for(TokenType t : TokenType.values()){
-               if(i.equalsIgnoreCase(t.toString())){
-                   tokens.add(new Token(t));
-               }
-               else if(i.equalsIgnoreCase("with")){
-                   tokens.add(new Token(TokenType.PREPOSITION, "with"));
-               }
-               else if(i.equalsIgnoreCase("on")){
-                   tokens.add(new Token(TokenType.PREPOSITION, "on"));
-               }
-               else{
+           switch(i){
+               case "drop":
+                   tokens.add(new Token(TokenType.DROP));
+                   break;
+               case "get":
+                   tokens.add(new Token(TokenType.GET));
+                   break;
+               case "help":
+                   tokens.add(new Token(TokenType.HELP));
+                   break;
+               case "look":
+                   tokens.add(new Token(TokenType.LOOK));
+                   break;
+               case "move":
+                   tokens.add(new Token(TokenType.MOVE));
+                   break;
+               case "quit":
+                   tokens.add(new Token(TokenType.QUIT));
+                   break;
+               case "status":
+                   tokens.add(new Token(TokenType.STATUS));
+                   break;
+               case "use":
+                   tokens.add(new Token(TokenType.USE));
+                   break;
+               case "on":
+                   tokens.add(new Token(TokenType.PREPOSITION, i));
+                   break;
+               case "with":
+                   tokens.add(new Token(TokenType.PREPOSITION, i));
+                   break;
+               default:
                    tokens.add(new Token(TokenType.VAR, i));
-               }
            }
        }
        tokens.add(new Token(TokenType.EOL));

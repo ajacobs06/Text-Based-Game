@@ -21,7 +21,6 @@ public class Parser {
     }
 
     public Command parse(ArrayList<Token> tokens) throws CommandErrorException{
-        //CommandErrorException exception = new CommandErrorException("Invalid input");
         ArrayList<Token> variables = new ArrayList<Token>();
         for(Token i : variables){
             if(i.getTokenType() == TokenType.VAR){

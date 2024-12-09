@@ -25,24 +25,29 @@ public class Look extends Command {
 
     @Override
     public String execute(GameState gameState) {
-        switch (target) {
-            case "room":
-                lookOutput = gameState.getMap().getCurrentRoom().getDescription();
-                break;
-            case "exits":
-                for(int i=0; i<gameState.getMap().getCurrentRoom().getExits().size(); i++){
-                    lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i);
-                }
-                break;
-            case "features":
-                for(int i=0; i<gameState.getMap().getCurrentRoom().getFeatures().size(); i++){
-                    lookOutput += gameState.getMap().getCurrentRoom().getFeatures().get(i);
-                }
-                break;
-            default:
-                break;
+        if(target != null) {
+            switch (target) {
+                case "room":
+                    lookOutput = gameState.getMap().getCurrentRoom().getDescription();
+                    break;
+                case "exits":
+                    for (int i = 0; i < gameState.getMap().getCurrentRoom().getExits().size(); i++) {
+                        lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i);
+                    }
+                    break;
+                case "features":
+                    for (int i = 0; i < gameState.getMap().getCurrentRoom().getFeatures().size(); i++) {
+                        lookOutput += gameState.getMap().getCurrentRoom().getFeatures().get(i);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return lookOutput;
         }
-        return lookOutput;
+        else{
+            return "Invalid Target";
+        }
 
     }
    
