@@ -31,21 +31,24 @@ public class Status extends Command {
             ArrayList<Item> items = gameState.getPlayer().getInventory();
             String inventory = "";
             for (Item i : items) {
-                inventory = inventory + i.getName();
+                inventory = inventory + i.getName() + ",";
             }
             for (Equipment i : equipment) {
-                inventory = inventory + i.getName();
+                inventory = inventory + i.getName() + ",";
             }
             return inventory;
         }
-        /*else if(is an item){
-            return description;
-        }*/
+        else if(equipmentList.isEquipment(topic)){
+            return equipmentList.getEquipment(topic).getDescription();
+        }
+        else if(itemList.isItem(topic)){
+            return itemList.getItem(topic).getDescription();
+        }
         else if(topic == "player"){
             return gameState.getPlayer().toString();
         }
         else{
-            return "Invalid status argument.";
+            return null;
         }
     }
 
