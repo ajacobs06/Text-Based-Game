@@ -27,10 +27,15 @@ public class GameStateFileParser {
         ArrayList<Item> itemArrayList = new ArrayList<Item>();
         ArrayList<UseInformation> useInformationArrayList = new ArrayList<UseInformation>();
 
-        boolean hidden;
+        boolean hidden = false;
         Player player;
 
-        File textFile = new File(filename);
+        try {
+            File textFile = new File(filename);
+        }
+        catch(FileNotFoundException){
+            System.out.println("File not found");
+        }
         Scanner fileInput = new Scanner(textFile);
         while (fileInput.hasNextLine()) {
             int counter = 0;
