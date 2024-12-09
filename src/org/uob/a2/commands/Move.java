@@ -12,6 +12,7 @@ import org.uob.a2.gameobjects.*;
  */
 public class Move extends Command {
     String direction;
+    boolean successfulExit = false;
 
     public Move(String direction) {
         this.direction = direction;
@@ -24,6 +25,18 @@ public class Move extends Command {
 
     @Override
     public String execute(GameState gameState) {
+        for (int i = 0; i < gameState.getMap().getCurrentRoom().getExits().size(); i++){
+            if (gameState.getMap().getCurrentRoom().getExits().get(i).getName().equalsIgnoreCase(direction)) {
+                gameState.getMap().setCurrentRoom(gameState.getCurrentRoom().getExits().get(i).getNextRoom());
+                successfulExit = true;
+            }
+        }
+        if (!successfulExit){
+            return "That is an invalid exit."
+        }
+        else{
+            return "Move successful.\nYou are now in the " + gameState.getMap().getCurrentRoom().getName();
+        }
     }
 
 }
