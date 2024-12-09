@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class itemList {
 
     static ArrayList<Item> itemArrayList = new ArrayList<Item>();
+    static Item present;
 
     public itemList(){
     }
@@ -25,9 +26,10 @@ public class itemList {
     public static Item getItem(String item){
         for(Item i : itemArrayList){
             if(i.getName() == item){
-                return i;
+                present = i;
             }
         }
+        return present;
     }
 
 
