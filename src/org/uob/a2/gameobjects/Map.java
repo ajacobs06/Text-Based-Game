@@ -58,13 +58,13 @@ public class Map {
         StringBuilder strbuildDisplay = new StringBuilder();
         for(int y = 0; y < 5; y++){
             for(int x = 0; x < 9; x++){
-                strbuildDisplay.append(roomDisplay[y][x])
+                strbuildDisplay.append(roomDisplay[y][x]);
             }
             strbuildDisplay.append("\n");
         }
         for(int i=0; i<roomCounter; i++){
             strbuildDisplay.append("\n");
-            strbuildDisplay.append(strbuildDisplay.toString())
+            strbuildDisplay.append(strbuildDisplay.toString());
         }
         String strDisplay = strbuildDisplay.toString();
         return strDisplay;
