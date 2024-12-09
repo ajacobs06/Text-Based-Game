@@ -52,6 +52,8 @@ public class Parser {
             case USE:
                 Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
                 return use;
+            default:
+                return null;
         }
     }
 
