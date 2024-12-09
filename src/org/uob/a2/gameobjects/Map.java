@@ -79,7 +79,7 @@ public class Map {
     @Override
     public String toString() {
         StringBuilder out = new StringBuilder("Map:\n");
-        for (Room r : this.rooms) {
+        for (Room r : map) {
             out.append(r.toString()).append("\n");
         }
         return out.toString();

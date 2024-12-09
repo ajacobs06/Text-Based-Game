@@ -25,7 +25,7 @@ public class Get extends Command {
 
     @Override
     public String execute(GameState gameState){
-        if(gameState.getMap().getCurrentRoom.hasItem(item)){
+        if(gameState.getMap().getCurrentRoom().hasItem(item)){
             if(!gameState.getPlayer().hasItem(item)) {
                 toString();
                 gameState.getPlayer().getItem(item);
