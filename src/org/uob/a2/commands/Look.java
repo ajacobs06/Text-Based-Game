@@ -27,9 +27,7 @@ public class Look extends Command {
     public String execute(GameState gameState) {
         switch (target) {
             case "room":
-                for(int i=0; i<gameState.getMap().getCurrentRoom().getDescription().size(); i++){
-                    lookOutput += gameState.getMap().getCurrentRoom().getDescription().get(i);
-                }
+                lookOutput = gameState.getMap().getCurrentRoom().getDescription();
                 break;
             case "exits":
                 for(int i=0; i<gameState.getMap().getCurrentRoom().getExits().size(); i++){
