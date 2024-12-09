@@ -28,38 +28,35 @@ public class Parser {
                 variables.add(i);
             }
         }
-        try {
-            switch (tokens.get(0).getTokenType()) {
-                case DROP:
-                    Drop drop = new Drop(variables.get(0).getValue());
-                    return drop;
-                case GET:
-                    Get get = new Get(variables.get(0).getValue());
-                    return get;
-                case HELP:
-                    Help help = new Help(tokens.get(1).getValue());
-                    return help;
-                case LOOK:
-                    Look look = new Look(tokens.get(1).getValue());
-                    return look;
-                case MOVE:
-                    Move move = new Move(tokens.get(1).getValue());
-                    return move;
-                case QUIT:
-                    Quit quit = new Quit();
-                    return quit;
-                case STATUS:
-                    Status status = new Status(tokens.get(1).getValue());
-                    return status;
-                case USE:
-                    Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
-                    return use;
-                default:
-                    return null;
-            }
-        }
-        catch (CommandErrorException e){
-            return e.toString();
+        switch (tokens.get(0).getTokenType()) {
+            case DROP:
+                Drop drop = new Drop(variables.get(0).getValue());
+                return drop;
+            case GET:
+                Get get = new Get(variables.get(0).getValue());
+                return get;
+            case HELP:
+                Help help = new Help(tokens.get(1).getValue());
+                return help;
+            case LOOK:
+                Look look = new Look(tokens.get(1).getValue());
+                return look;
+            case MOVE:
+                Move move = new Move(tokens.get(1).getValue());
+                return move;
+            case QUIT:
+                Quit quit = new Quit();
+                return quit;
+            case STATUS:
+                Status status = new Status(tokens.get(1).getValue());
+                return status;
+            case USE:
+                Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
+                return use;
+            case ERROR:
+                throw new CommandErrorException("Invalid Command");
+            default:
+                return null;
         }
     }
 
