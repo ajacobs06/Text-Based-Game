@@ -21,9 +21,11 @@ public class Game {
     public Game(){
     }
 
-    public static void setup(){
+    public static void setup() {
 
-        GameStateFileParser("game.txt");
+        GameStateFileParser.parse("game.txt");
+
+    }
 
     public static void main(String[] args){
 
