@@ -13,6 +13,7 @@ import org.uob.a2.gameobjects.*;
  */
 public class Help extends Command {
     String topic = "topic";
+    String helpOutput;
 
     public Help(String topic) {
         this.topic = topic;
@@ -27,29 +28,29 @@ public class Help extends Command {
     public String execute(GameState gameState) {
         switch(topic) {
             case "move":
-                return "Use 'move' followed by an exit to leave the room and move into the next.";
+                helpOutput = "Use 'move' followed by an exit to leave the room and move into the next.";
                 break;
             case "look":
-                return "Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +
+                helpOutput = "Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +
                         "    features\n    item name\n    equipment name\n    feature name";
                 break;
             case "use":
-                return "Use 'use' in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>";
+                helpOutput = "Use 'use' in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>";
                 break;
             case "drop":
-                return "Use 'drop' follwed by one of the following things to remove it from your player:\n    item name\n    equipment name";
+                helpOutput = "Use 'drop' follwed by one of the following things to remove it from your player:\n    item name\n    equipment name";
                 break;
             case "get":
-                return "Use 'get' followed by one of the following things to pick them up:\n    item name\n    equipment name";
+                helpOutput = "Use 'get' followed by one of the following things to pick them up:\n    item name\n    equipment name";
                 break;
             case "status":
-                return "Use 'status' followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score";
+                helpOutput = "Use 'status' followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score";
                 break;
             case "combine":
-                return "Use 'combine' in the following format:\n    combine <item1> <item2>";
+                helpOutput = "Use 'combine' in the following format:\n    combine <item1> <item2>";
                 break;
             case "topic":
-                return "Here are a list of commands and the ways to use them:\n" +
+                helpOutput = "Here are a list of commands and the ways to use them:\n" +
                         "Use 'move' followed by an exit to leave the room and move into the next.\n" +
                         "Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +
                         "features\n    item name\n    equipment name\n    feature name\n" +
@@ -60,10 +61,11 @@ public class Help extends Command {
                         "Use 'combine' in the following format:\n    combine <item1> <item2>";
                 break;
             default:
-                return "That is not a valid topic for the help command. Try just typing 'help'.";
+                helpOutput = "That is not a valid topic for the help command. Try just typing 'help'.";
                 break;
 
         }
+        return helpOutput;
     }
   
 }

@@ -11,7 +11,7 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public abstract class Command {
-    CommandType commandType;
+    public CommandType commandType;
     String value;
 
     public Command(){};
