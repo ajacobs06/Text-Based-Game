@@ -1,7 +1,7 @@
 package org.uob.a2.parser;
 
 import org.junit.jupiter.api.Test;
-import org.uob.a2.commands.*;
+import org.uob.a2.*;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
