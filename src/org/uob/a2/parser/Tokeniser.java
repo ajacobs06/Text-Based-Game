@@ -40,7 +40,7 @@ public class Tokeniser {
                    tokens.add(new Token(t));
                }
                else if(i.equalsIgnoreCase("with")){
-                   tokens.add(new Token(TokenType.PREPOSITION), "with");
+                   tokens.add(new Token(TokenType.PREPOSITION, "with"));
                }
                else if(i.equalsIgnoreCase("on")){
                    tokens.add(new Token(TokenType.PREPOSITION, "on"));
