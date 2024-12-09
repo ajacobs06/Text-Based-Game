@@ -23,7 +23,7 @@ public class Parser {
     }
 
     public Command parse(ArrayList<Token> tokens) throws CommandErrorException{
-        ArrayList<Token> variables = new ArrayList<Tokens>();
+        ArrayList<Token> variables = new ArrayList<Token>();
         for(Token i : variables){
             if(i.getTokenType() == TokenType.VAR){
                 variables.add(i);
@@ -32,11 +32,11 @@ public class Parser {
         for(Token token : variables){
             if(equipmentList.isEquipment(token.getValue())){
                 Equipment equipment = equipmentList.getEquipment(token.getValue());
-            } else if (itemList.isEquipment(token.getValue())) {
-                Item item = item.getItem(token.getValue());
+            } else if (itemList.isItem(token.getValue())) {
+                Item item = itemList.getItem(token.getValue());
             }
         }
-        switch(tokens[0].getTokenType()){
+        switch(tokens.get(0).getTokenType()){
             case TokenType.DROP:
                 if(equipment != null) {
                     Drop drop = new Drop(equipment);
@@ -56,23 +56,23 @@ public class Parser {
                 return get;
                 break;
             case TokenType.HELP:
-                Help help = new Help(tokens[1].getValue());
+                Help help = new Help(tokens.get(1).getValue());
                 break;
             case TokenType.LOOK:
-                Look look = new Look(tokens[1].getValue());
+                Look look = new Look(tokens.get(1).getValue());
                 break;
             case TokenType.MOVE:
-                Move move = new Move(tokens[1].getValue());
+                Move move = new Move(tokens.get(1).getValue());
                 break;
             case TokenType.QUIT:
                 Quit quit = new Quit();
                 break;
             case TokenType.STATUS:
-                Status status = new Status(tokens[1].getValue());
+                Status status = new Status(tokens.get(1).getValue());
                 break;
             case TokenType.USE:
                 if(equipment != null) {
-                    Use use = new Use(equipment, variables[1].getValue());
+                    Use use = new Use(equipment, variables.get(1).getValue());
                 }
                 break;
             default:

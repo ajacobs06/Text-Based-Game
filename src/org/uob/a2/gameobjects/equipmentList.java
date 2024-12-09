@@ -13,7 +13,7 @@ public class equipmentList {
         equipment.add(equipmentInput);
     }
 
-    public boolean isEquipment(String equipmentInput) {
+    public static boolean isEquipment(String equipmentInput) {
         if(getEquipment(equipmentInput) == null){
             return false;
         }
@@ -22,7 +22,7 @@ public class equipmentList {
         }
     }
 
-    public Equipment getEquipment(String equipmentInput){
+    public static Equipment getEquipment(String equipmentInput){
         for(Equipment i : equipment){
             if(i.getName() == equipmentInput){
                 return i;

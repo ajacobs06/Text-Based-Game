@@ -9,7 +9,7 @@ public class itemList {
     public itemList(){
     }
 
-    public boolean isItem(String item){
+    public static boolean isItem(String item){
         if(getObject(item) == null){
             return false;
         }
