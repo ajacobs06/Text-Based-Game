@@ -20,6 +20,8 @@ public class Room extends GameObject {
     Item removableI;
     Equipment removableE;
 
+    GameObject placeHolderG;
+
 
     public Room(){}
 
@@ -33,6 +35,7 @@ public class Room extends GameObject {
 
     public void addExit(Exit exit){
         exitsList.add(exit);
+        gameObjects.add(exit);
     }
 
     public ArrayList<Item> getItems(){
@@ -121,6 +124,7 @@ public class Room extends GameObject {
 
     public void addEquipment(Equipment equipment){
         equipmentList.add(equipment);
+        gameObjects.add(equipment);
     }
 
     public Feature getFeature(String id){
@@ -135,6 +139,7 @@ public class Room extends GameObject {
 
     public void addItem(Item item){
         items.add(item);
+        gameObjects.add(item);
     }
 
     public ArrayList<Feature> getFeatures() {
@@ -147,6 +152,7 @@ public class Room extends GameObject {
 
     public void addFeature(Feature feature){
         features.add(feature);
+        gameObjects.add(feature);
     }
 
     public boolean hasItem(String itemName){
@@ -176,6 +182,7 @@ public class Room extends GameObject {
             }
         }
         items.remove(removableI);
+        gameObjects.remove(removableI);
     }
 
     public void removeEquipment(String equipmentName){
@@ -185,6 +192,7 @@ public class Room extends GameObject {
             }
         }
         equipmentList.remove(removableE);
+        gameObjects.remove(removableI);
     }
 
     /**

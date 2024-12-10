@@ -27,13 +27,18 @@ public class Parser {
         for(Token i : tokens){
             if(i.getTokenType() == TokenType.VAR){
                 variables.add(i);
-                removeTokens.add(count);
-
             }
             count++;
         }
-        for(int i : removeTokens){
-            tokens.remove(i);
+        for(int j=0; j<tokens.size(); j++) {
+            try {
+                if (tokens.get(j).getTokenType() == TokenType.VAR) {
+                    tokens.remove(j);
+                }
+            }
+            catch(IndexOutOfBoundsException e){
+                break;
+            }
         }
         if(variables.size() != 0) {
             switch (tokens.get(0).getTokenType()) {

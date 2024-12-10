@@ -25,7 +25,7 @@ public class itemList {
 
     public static Item getItem(String item){
         for(Item i : itemArrayList){
-            if(i.getName() == item){
+            if(i.getName().equals(item)){
                 present = i;
             }
         }

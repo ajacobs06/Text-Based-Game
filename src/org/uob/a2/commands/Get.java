@@ -37,7 +37,7 @@ public class Get extends Command {
         } else if(gameState.getMap().getCurrentRoom().hasEquipment(item)){
             if(!gameState.getPlayer().hasEquipment(item)){
                 gameState.getPlayer().addEquipment(gameState.getMap().getCurrentRoom().getEquipmentByName(item));
-
+                removing = "equipment";
             }
             else{
                 removing = "owned";

@@ -15,6 +15,7 @@ public class Container extends Feature {
         super(id, name, description, hidden);
     }
 
+    @Override
     public String getName(){
         return name;
     }

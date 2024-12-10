@@ -13,6 +13,8 @@ import org.uob.a2.gameobjects.*;
 public class Use extends Command {
     String equipmentName;
     String target;
+    String id;
+    String useTypes;
 
     public Use(String equipmentName, String target){
         this.equipmentName = equipmentName;
@@ -26,7 +28,24 @@ public class Use extends Command {
 
     @Override
     public String execute(GameState gameState){
-        return "Executing USE";
+        if(gameState.getPlayer().hasEquipment(equipmentName)) {
+            id = GameObjectList.getGameObject(target).getId();
+            if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(id)) {
+                gameState.getPlayer().getEquipment(equipmentName).getUseInformation().setUsed(true);
+                useTypes = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getAction();
+                switch(useTypes){
+                    case "reveal":
+                        gameState.getPlayer().getEquipment(target).setHidden(false);
+                        break;
+                }
+                return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
+            } else {
+                return "Invalid Target";
+            }
+        }
+        else{
+            return "You do not have this piece of equipment";
+        }
     }
   
 }

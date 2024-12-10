@@ -1,6 +1,6 @@
 player:pieter
 map:r1
-    room:r1,test room,This is a test room for testing. It's bland.,false
+    room:r1,testroom,This is a test room for testing. It's bland.,false
         equipment:k0,key,An old rusty key,false,open,c1,rb1,You use the rusty key to open the chest. Something falls to the floor...
         container:c1,chest,A solid oak chest.,false
         equipment:rb1,ruby,A red ruby,true,reveal,r1,e1,You active the ruby! Hidden objects become visible!

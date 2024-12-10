@@ -15,10 +15,12 @@ import java.util.ArrayList;
 public class Player {
     ArrayList<Item> items = new ArrayList<Item>();
     ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
+    ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     boolean present = false;
     String name;
     Equipment placeHolderEq;
     Item placeHolderI;
+    GameObject placeHolderG;
 
     public Player(){}
 
@@ -60,6 +62,7 @@ public class Player {
 
     public void addItem(Item item){
         items.add(item);
+        gameObjects.add(item);
     }
 
     public ArrayList<Equipment> getEquipment(){
@@ -90,14 +93,17 @@ public class Player {
 
     public void addEquipment(Equipment equipment){
         equipmentList.add(equipment);
+        gameObjects.add(equipment);
     }
 
     public void removeEquipment(Equipment equipmentName){
         equipmentList.remove(equipmentName);
+        gameObjects.remove(equipmentName);
     }
 
     public void removeItem(Item itemName){
         items.remove(itemName);
+        gameObjects.remove(itemName);
     }
 
     /**
