@@ -57,33 +57,32 @@ public class GameStateFileParser {
                         break;
                     case "equipment":
                         useInformationArrayList.add(new UseInformation(false, objectParts[4], objectParts[5], objectParts[6], objectParts[7]));
-                        equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList.get(counter)));
-                        equipmentList.addEquipment(equipmentArrayList.get(counter));
-                        roomArrayList.get(roomArrayList.size()-1).addEquipment(equipmentArrayList.get(counter));
+                        equipmentArrayList.add(new Equipment(objectParts[0], objectParts[1], objectParts[2], hidden, useInformationArrayList.get(useInformationArrayList.size()-1)));
+                        equipmentList.addEquipment(equipmentArrayList.get(equipmentArrayList.size()-1));
+                        roomArrayList.get(roomArrayList.size()-1).addEquipment(equipmentArrayList.get(equipmentArrayList.size()-1));
                         break;
                     case "container":
                         containerArrayList.add(new Container(objectParts[0], objectParts[1], objectParts[2], hidden));
-                        roomArrayList.get(roomArrayList.size()-1).addFeature(containerArrayList.get(counter));
+                        roomArrayList.get(roomArrayList.size()-1).addFeature(containerArrayList.get(containerArrayList.size()-1));
                         break;
                     case "exit":
                         exitArrayList.add(new Exit(objectParts[0], objectParts[1], objectParts[2], objectParts[3], hidden));
-                        roomArrayList.get(roomArrayList.size()-1).addExit(exitArrayList.get(counter));
+                        roomArrayList.get(roomArrayList.size()-1).addExit(exitArrayList.get(exitArrayList.size()-1));
                         break;
                     case "feature":
                         featureArrayList.add(new Feature(objectParts[0], objectParts[1], objectParts[2], hidden));
-                        roomArrayList.get(roomArrayList.size()-1).addFeature(featureArrayList.get(counter));
+                        roomArrayList.get(roomArrayList.size()-1).addFeature(featureArrayList.get(featureArrayList.size()-1));
                         break;
                     case "item":
                         itemArrayList.add(new Item(objectParts[0], objectParts[1], objectParts[2], hidden));
-                        itemList.addItem(itemArrayList.get(counter));
-                        roomArrayList.get(roomArrayList.size()-1).addItem(itemArrayList.get(counter));
+                        itemList.addItem(itemArrayList.get(itemArrayList.size()-1));
+                        roomArrayList.get(roomArrayList.size()-1).addItem(itemArrayList.get(itemArrayList.size()-1));
                         break;
                     case "map":
                         map = new Map();
                         currentRoomId = objectParts[0];
 
                 }
-                counter++;
 
             }
             map.setCurrentRoom(currentRoomId);

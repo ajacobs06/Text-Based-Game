@@ -59,8 +59,13 @@ public class Parser {
                     Status status = new Status(variables.get(0).getValue());
                     return status;
                 case USE:
-                    Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
-                    return use;
+                    if(variables.size()>1) {
+                        Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
+                        return use;
+                    }
+                    else{
+                        throw new CommandErrorException("Invalid number of arguments. 2 required.");
+                    }
                 case ERROR:
                     throw new CommandErrorException("Invalid Command");
                 default:
