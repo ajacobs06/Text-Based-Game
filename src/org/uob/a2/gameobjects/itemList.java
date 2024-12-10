@@ -24,6 +24,7 @@ public class itemList {
     }
 
     public static Item getItem(String item){
+        present = null;
         for(Item i : itemArrayList){
             if(i.getName().equals(item)){
                 present = i;

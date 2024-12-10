@@ -25,14 +25,20 @@ public class Look extends Command {
 
     @Override
     public String execute(GameState gameState) {
+        lookOutput = "";
         if(target != null) {
             switch (target) {
                 case "room":
-                    lookOutput = gameState.getMap().getCurrentRoom().getDescription() + "\nVisible Equipment: " + gameState.getMap().getCurrentRoom().getEquipmentsNames() + "\nVisible Items: "+ gameState.getMap().getCurrentRoom().getItemsNames();
+                    lookOutput += "You are in: " + gameState.getMap().getCurrentRoom().getName() + "\n";
+                    lookOutput += gameState.getMap().getCurrentRoom().getDescription();
+                    lookOutput += "\nVisible Equipment: " + gameState.getMap().getCurrentRoom().getVisibleEquipmentsNames();
+                    lookOutput += "\nVisible Items: "+ gameState.getMap().getCurrentRoom().getVisibleItemsNames();
                     break;
                 case "exits":
                     for (int i = 0; i < gameState.getMap().getCurrentRoom().getExits().size(); i++) {
-                        lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i).getName();
+                        if(gameState.getMap().getCurrentRoom().getExits().get(i).getHidden() == false) {
+                            lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i).getName();
+                        }
                     }
                     break;
                 case "features":

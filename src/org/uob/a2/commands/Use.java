@@ -13,7 +13,8 @@ import org.uob.a2.gameobjects.*;
 public class Use extends Command {
     String equipmentName;
     String target;
-    String id;
+    String targetId;
+    String revealedId;
     String useTypes;
 
     public Use(String equipmentName, String target){
@@ -29,13 +30,22 @@ public class Use extends Command {
     @Override
     public String execute(GameState gameState){
         if(gameState.getPlayer().hasEquipment(equipmentName)) {
-            id = GameObjectList.getGameObject(target).getId();
-            if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(id)) {
+            targetId = GameObjectList.getGameObject(target).getId();
+            revealedId = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getResult();
+            if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(targetId)) {
                 gameState.getPlayer().getEquipment(equipmentName).getUseInformation().setUsed(true);
                 useTypes = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getAction();
                 switch(useTypes){
                     case "reveal":
-                        gameState.getPlayer().getEquipment(target).setHidden(false);
+                        gameState.getMap().getCurrentRoom().revealAll();
+                        break;
+                    case "open":
+                        try {
+                            gameState.getMap().getCurrentRoom().getItem(revealedId).setHidden(false);
+                        }
+                        catch(NullPointerException e){
+                            gameState.getMap().getCurrentRoom().getEquipment(revealedId).setHidden(false);
+                        }
                         break;
                 }
                 return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();

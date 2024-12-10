@@ -16,6 +16,11 @@ public class Room extends GameObject {
     ArrayList<Feature> features = new ArrayList<Feature>();
     ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+    ArrayList<Equipment> visibleEquipment = new ArrayList<Equipment>();
+    ArrayList<Item> visibleItems = new ArrayList<Item>();
+
+    StringBuilder visibleItemNames = new StringBuilder();
+    StringBuilder visibleEquipmentNames = new StringBuilder();
 
     Item removableI;
     Equipment removableE;
@@ -40,6 +45,17 @@ public class Room extends GameObject {
 
     public ArrayList<Item> getItems(){
         return items;
+    }
+
+    public String getVisibleItemsNames(){
+        visibleItemNames = new StringBuilder();
+        for(Item i : items){
+            if(i.getHidden() == false){
+                visibleItems.add(i);
+                visibleItemNames.append(i.getName()+",");
+            }
+        }
+        return visibleItemNames.toString();
     }
 
     public String getItemsNames(){
@@ -82,6 +98,17 @@ public class Room extends GameObject {
 
     public ArrayList<Equipment> getEquipments(){
         return equipmentList;
+    }
+
+    public String getVisibleEquipmentsNames(){
+        visibleEquipmentNames = new StringBuilder();
+        for(Equipment e : equipmentList){
+            if(e.getHidden() == false){
+                visibleEquipment.add(e);
+                visibleEquipmentNames.append(e.getName()+",");
+            }
+        }
+        return visibleEquipmentNames.toString();
     }
 
     public String getEquipmentsNames(){
@@ -148,6 +175,12 @@ public class Room extends GameObject {
 
     public ArrayList<GameObject> getAll(){
         return gameObjects;
+    }
+
+    public void revealAll(){
+        for(GameObject g : gameObjects){
+            g.setHidden(false);
+        }
     }
 
     public void addFeature(Feature feature){

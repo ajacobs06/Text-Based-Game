@@ -82,7 +82,9 @@ public class Player {
     public Equipment getEquipment(String equipment){
         if(hasEquipment(equipment)){
             for(Equipment i : equipmentList){
-                placeHolderEq = i;
+                if(i.getName().equals(equipment)) {
+                    placeHolderEq = i;
+                }
             }
         }
         else{

@@ -24,6 +24,7 @@ public class equipmentList {
     }
 
     public static Equipment getEquipment(String equipmentInput){
+        present = null;
         for(Equipment i : equipment){
             if(i.getName().equals(equipmentInput)){
                 present = i;
