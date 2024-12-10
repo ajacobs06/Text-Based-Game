@@ -13,6 +13,7 @@ import org.uob.a2.gameobjects.*;
  */
 public class Get extends Command {
     String item;
+    String removing;
 
     public Get(String item){
         this.item = item;
@@ -27,23 +28,32 @@ public class Get extends Command {
     public String execute(GameState gameState){
         if(gameState.getMap().getCurrentRoom().hasItem(item)){
             if(!gameState.getPlayer().hasItem(item)) {
-                gameState.getPlayer().addItem(gameState.getPlayer().getItem(item));
-                return toString();
+                gameState.getPlayer().addItem(gameState.getMap().getCurrentRoom().getItemByName(item));
+                removing = "item";
             }
             else{
-                return "You already have this item!";
+                removing = "owned";
             }
         } else if(gameState.getMap().getCurrentRoom().hasEquipment(item)){
             if(!gameState.getPlayer().hasEquipment(item)){
-                gameState.getPlayer().addEquipment(gameState.getPlayer().getEquipment(item));
-                return toString();
+                gameState.getPlayer().addEquipment(gameState.getMap().getCurrentRoom().getEquipmentByName(item));
+
             }
             else{
-                return "You already have " + item;
+                removing = "owned";
             }
         }
-        else{
-            return "No " + item + " to get.";
+        switch(removing){
+            case "item":
+                gameState.getMap().getCurrentRoom().removeItem(item);
+                return toString();
+            case "equipment":
+                gameState.getMap().getCurrentRoom().removeEquipment(item);
+                return toString();
+            case "owned":
+                return "You already have " + item;
+            default:
+                return "No " + item + " to get.";
         }
     }
    

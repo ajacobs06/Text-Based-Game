@@ -47,7 +47,7 @@ public class Player {
     public Item getItem(String itemName){
         if(hasItem(itemName)){
             for(Item i : items){
-                if(i.getName() == itemName) {
+                if(i.getName().equals(itemName)) {
                     placeHolderI = i;
                 }
             }
@@ -69,7 +69,7 @@ public class Player {
     public boolean hasEquipment(String equipmentName){
         present = false;
         for(Equipment i : equipmentList){
-            if(i.equals(equipmentName)) {
+            if(i.getName().equals(equipmentName)) {
                 present = true;
             }
         }

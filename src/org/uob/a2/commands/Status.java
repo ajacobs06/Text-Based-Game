@@ -29,18 +29,22 @@ public class Status extends Command {
         if(topic.equals("inventory")) {
             ArrayList<Equipment> equipment = gameState.getPlayer().getEquipment();
             ArrayList<Item> items = gameState.getPlayer().getInventory();
-            String inventory = "";
-            for (Item i : items) {
-                inventory = inventory + i.getName() + ",";
+            ArrayList<String> inventory = new ArrayList<String>();
+            if(items.size()>0) {
+                for (Item i : items) {
+                    inventory.add(i.getName() + ",");
+                }
             }
-            for (Equipment i : equipment) {
-                inventory = inventory + i.getName() + ",";
+            if(equipment.size()>0) {
+                for (Equipment i : equipment) {
+                    inventory.add(i.getName() + ",");
+                }
             }
             if(inventory.equals("")) {
                 return "Inventory: There are no items in your inventory";
             }
             else {
-                return "Inventory: " + inventory;
+                return "Inventory: " + inventory.toString();
             }
         }
         else if(equipmentList.isEquipment(topic)){

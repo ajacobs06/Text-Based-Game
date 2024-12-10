@@ -17,6 +17,9 @@ public class Room extends GameObject {
     ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
+    Item removableI;
+    Equipment removableE;
+
 
     public Room(){}
 
@@ -164,6 +167,24 @@ public class Room extends GameObject {
             }
         }
         return present;
+    }
+
+    public void removeItem(String itemName){
+        for(Item i : items){
+            if(i.getName().equals(itemName)){
+                removableI = i;
+            }
+        }
+        items.remove(removableI);
+    }
+
+    public void removeEquipment(String equipmentName){
+        for(Equipment i : equipmentList){
+            if(i.getName().equals(equipmentName)) {
+                removableE = i;
+            }
+        }
+        equipmentList.remove(removableE);
     }
 
     /**
