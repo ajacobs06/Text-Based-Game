@@ -31,6 +31,7 @@ public class GameStateFileParser {
         boolean hidden = false;
         Player player = new Player("placeholder");
         Map map = new Map();
+        String currentRoomId = "placeholder";
 
         try {
             File textFile = new File(filename);
@@ -79,12 +80,13 @@ public class GameStateFileParser {
                         break;
                     case "map":
                         map = new Map();
-                        map.setCurrentRoom(objectParts[0]);
+                        currentRoomId = objectParts[0];
 
                 }
                 counter++;
 
             }
+            map.setCurrentRoom(currentRoomId);
             GameState gameState = new GameState(map, player);
 
             return gameState;

@@ -26,7 +26,7 @@ public class Status extends Command {
 
     @Override
     public String execute(GameState gameState) {
-        if(topic == "inventory") {
+        if(topic.equals("inventory")) {
             ArrayList<Equipment> equipment = gameState.getPlayer().getEquipment();
             ArrayList<Item> items = gameState.getPlayer().getInventory();
             String inventory = "";
@@ -36,7 +36,12 @@ public class Status extends Command {
             for (Equipment i : equipment) {
                 inventory = inventory + i.getName() + ",";
             }
-            return inventory;
+            if(inventory.equals("")) {
+                return "Inventory: There are no items in your inventory";
+            }
+            else {
+                return "Inventory: " + inventory;
+            }
         }
         else if(equipmentList.isEquipment(topic)){
             return equipmentList.getEquipment(topic).getDescription();
@@ -44,8 +49,11 @@ public class Status extends Command {
         else if(itemList.isItem(topic)){
             return itemList.getItem(topic).getDescription();
         }
-        else if(topic == "player"){
+        else if(topic.equals("player")){
             return gameState.getPlayer().toString();
+        }
+        else if(topic.equals("map")){
+            return gameState.getMap().display();
         }
         else{
             return null;

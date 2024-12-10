@@ -12,7 +12,7 @@ import org.uob.a2.gameobjects.*;
  * </p>
  */
 public class Help extends Command {
-    String topic = "topic";
+    String topic;
     String helpOutput;
 
     public Help(String topic) {
@@ -26,7 +26,7 @@ public class Help extends Command {
 
     @Override
     public String execute(GameState gameState) {
-        if(topic != null) {
+        if(topic != "topic") {
             switch (topic) {
                 case "move":
                     helpOutput = "Use 'move' followed by an exit to leave the room and move into the next.";

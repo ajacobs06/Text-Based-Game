@@ -8,19 +8,12 @@ package org.uob.a2.gameobjects;
  * </p>
  */
 public class Exit extends GameObject {
-    String id;
-    String name;
-    String description;
     String nextRoom;
-    boolean hidden;
 
 
     public Exit(String id, String name, String description, String nextRoom, boolean hidden){
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        super(id, name, description, hidden);
         this.nextRoom = nextRoom;
-        this.hidden = hidden;
     }
 
     public String getNextRoom(){

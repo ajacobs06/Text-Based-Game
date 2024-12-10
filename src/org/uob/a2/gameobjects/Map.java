@@ -20,7 +20,9 @@ public class Map {
     ArrayList<Room> map = new ArrayList<Room>();
     String[][] roomDisplay = new String[5][9];
     int roomCounter = 0;
-    Room currentRoom = new Room("r1","test room","This is a test room for testing. It's bland.",false);
+    Room currentRoom;
+    Room output;
+    StringBuilder roomRepeat = new StringBuilder();
 
     public Map() {
 
@@ -36,11 +38,22 @@ public class Map {
     }
 
     public void setCurrentRoom(String roomId){
-        for(Room r : map){
-            if(r.getId() == roomId){
-                currentRoom = r;
+        for(int i=0; i<map.size(); i++){
+            String checkRoomId = map.get(i).getId();
+            if(map.get(i).getId().equals(roomId)){
+                currentRoom = map.get(i);
             }
         }
+    }
+
+    public Room getRoom(String roomId){
+        output = null;
+        for(Room r : map){
+            if(r.getId() == roomId){
+                output = r;
+            }
+        }
+        return output;
     }
 
     public String display(){
@@ -52,8 +65,8 @@ public class Map {
             }
         }
         for(int x = 0; x < 9; x++){
-            roomDisplay[0][x] = "-";
-            roomDisplay[4][x] = "-";
+            roomDisplay[0][x] = "—";
+            roomDisplay[4][x] = "—";
             }
         StringBuilder strbuildDisplay = new StringBuilder();
         for(int y = 0; y < 5; y++){
@@ -62,10 +75,10 @@ public class Map {
             }
             strbuildDisplay.append("\n");
         }
-        for(int i=0; i<roomCounter; i++){
-            strbuildDisplay.append("\n");
-            strbuildDisplay.append(strbuildDisplay.toString());
+        for(int i=1; i<roomCounter; i++){
+            roomRepeat.append(strbuildDisplay.toString());
         }
+        strbuildDisplay.append(roomRepeat.toString());
         String strDisplay = strbuildDisplay.toString();
         return strDisplay;
     }

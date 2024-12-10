@@ -28,19 +28,37 @@ public class Look extends Command {
         if(target != null) {
             switch (target) {
                 case "room":
-                    lookOutput = gameState.getMap().getCurrentRoom().getDescription();
+                    lookOutput = gameState.getMap().getCurrentRoom().getDescription() + "\nVisible Equipment: " + gameState.getMap().getCurrentRoom().getEquipmentsNames() + "\nVisible Items: "+ gameState.getMap().getCurrentRoom().getItemsNames();
                     break;
                 case "exits":
                     for (int i = 0; i < gameState.getMap().getCurrentRoom().getExits().size(); i++) {
-                        lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i);
+                        lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i).getName();
                     }
                     break;
                 case "features":
                     for (int i = 0; i < gameState.getMap().getCurrentRoom().getFeatures().size(); i++) {
-                        lookOutput += gameState.getMap().getCurrentRoom().getFeatures().get(i);
+                        lookOutput += gameState.getMap().getCurrentRoom().getFeatures().get(i).getName();
                     }
                     break;
                 default:
+                    if(gameState.getPlayer().hasItem(target)){
+                        lookOutput = gameState.getPlayer().getItem(target).getDescription();
+                    }
+                    else if(gameState.getPlayer().hasEquipment(target)){
+                        lookOutput = gameState.getPlayer().getEquipment(target).getDescription();
+                    }
+                    else if(gameState.getMap().getCurrentRoom().hasItem(target)){
+                        lookOutput = gameState.getMap().getCurrentRoom().getItemByName(target).getDescription();
+                    }
+                    else if(gameState.getMap().getCurrentRoom().hasEquipment(target)) {
+                        lookOutput = gameState.getMap().getCurrentRoom().getEquipmentByName(target).getDescription();
+                    }
+                    else if(gameState.getMap().getCurrentRoom().getFeatureByName(target) != null){
+                        lookOutput = gameState.getMap().getCurrentRoom().getFeatureByName(target).getDescription();
+                        }
+                    else{
+                        lookOutput = "Invalid target";
+                    }
                     break;
             }
             return lookOutput;

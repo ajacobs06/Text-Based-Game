@@ -11,10 +11,6 @@ import java.util.ArrayList;
  * </p>
  */
 public class Room extends GameObject {
-    String id;
-    String name;
-    String description;
-    boolean hidden;
     ArrayList<Exit> exitsList = new ArrayList<Exit>();
     ArrayList<Item> items = new ArrayList<Item>();
     ArrayList<Feature> features = new ArrayList<Feature>();
@@ -25,35 +21,7 @@ public class Room extends GameObject {
     public Room(){}
 
     public Room(String id, String name, String description, boolean hidden){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.hidden = hidden;
-    }
-
-    @Override
-    public void setName(String name){
-        this.name = name;
-    }
-
-    @Override
-    public void setDescription(String description){
-        this.description = description;
-    }
-
-    @Override
-    public String getName(){
-        return name;
-    }
-
-    @Override
-    public String getId(){
-        return id;
-    }
-
-    @Override
-    public String getDescription(){
-        return description;
+        super(id, name, description, hidden);
     }
 
     public ArrayList<Exit> getExits(){
@@ -68,10 +36,18 @@ public class Room extends GameObject {
         return items;
     }
 
+    public String getItemsNames(){
+        StringBuilder itemsNames = new StringBuilder();
+        for(Item i : items){
+            itemsNames.append(i.getName() + " ");
+        }
+        return itemsNames.toString();
+    }
+
     public Item getItem(String id){
         Item found = null;
         for(Item i : items){
-            if(i.id == id){
+            if(i.id.equals(id)){
                 found = i;
             }
         }
@@ -81,7 +57,7 @@ public class Room extends GameObject {
     public Item getItemByName(String name){
         Item found = null;
         for(Item i : items){
-            if(i.name == name){
+            if(i.getName().equals(name)){
                 found = i;
             }
         }
@@ -91,7 +67,7 @@ public class Room extends GameObject {
     public Feature getFeatureByName(String name){
         Feature found = null;
         for(Feature i : features){
-            if(i.name == name){
+            if(i.name.equals(name)){
                 found = i;
             }
         }
@@ -102,10 +78,18 @@ public class Room extends GameObject {
         return equipmentList;
     }
 
+    public String getEquipmentsNames(){
+        StringBuilder equipments = new StringBuilder();
+        for(Equipment e : equipmentList){
+            equipments.append(e.getName() + " ");
+        }
+        return equipments.toString();
+    }
+
     public Equipment getEquipmentByName(String name){
         Equipment found = null;
         for(Equipment i : equipmentList){
-            if(i.name == name){
+            if(i.name.equals(name)){
                 found = i;
             }
         }
@@ -115,7 +99,7 @@ public class Room extends GameObject {
     public Equipment getEquipment(String id){
         Equipment found = null;
         for(Equipment i : equipmentList){
-            if(i.id == id){
+            if(i.id.equals(id)){
                 found = i;
             }
         }
@@ -125,7 +109,7 @@ public class Room extends GameObject {
     public Exit getExit(String id){
         Exit found = null;
         for(Exit i : exitsList){
-            if(i.id == id){
+            if(i.id.equals(id)){
                 found = i;
             }
         }
@@ -139,7 +123,7 @@ public class Room extends GameObject {
     public Feature getFeature(String id){
         Feature found = null;
         for(Feature i : features){
-            if(i.id == id){
+            if(i.id.equals(id)){
                 found = i;
             }
         }
@@ -165,7 +149,7 @@ public class Room extends GameObject {
     public boolean hasItem(String itemName){
         boolean present = false;
         for(Item i : items){
-            if(i.equals(itemName)){
+            if(i.getName().equals(itemName)){
                 present = true;
             }
         }
@@ -175,7 +159,7 @@ public class Room extends GameObject {
     public boolean hasEquipment(String equipmentName){
         boolean present = false;
         for(Equipment i : equipmentList){
-            if(i.equals(equipmentName)) {
+            if(i.getName().equals(equipmentName)) {
                 present = true;
             }
         }

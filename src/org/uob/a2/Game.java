@@ -36,17 +36,18 @@ public class Game {
 
     public static void main(String[] args){
         System.out.println("Game Start.");
+
         while(gameLoop.getGameLoop()){
             System.out.println("Please enter a command:");
             String userInput = input.nextLine();
             tokeniser.tokenise(tokeniser.sanitise(userInput));
             try {
                 userCommand = parser.parse(tokeniser.getTokens());
+                System.out.println(userCommand.execute(gameState));
             }
             catch(CommandErrorException e){
                 System.out.println("Invalid command");
             }
-            System.out.println(userCommand.execute(gameState));
             tokeniser.clearTokens();
         }
 

@@ -32,43 +32,65 @@ public class Tokeniser {
    }
 
    public void tokenise(String s){
+       boolean help_status = false;
        int counter = 0;
        String s_sanitised = sanitise(s);
        String[] sSplit = s_sanitised.split("\\s+");
-       for(String i : sSplit){
-           switch(i){
-               case "drop":
-                   tokens.add(new Token(TokenType.DROP));
-                   break;
-               case "get":
-                   tokens.add(new Token(TokenType.GET));
-                   break;
-               case "help":
+       for(int i=0; i<sSplit.length; i++){
+           if(sSplit[i].equals("help")){
+               try {
+                   tokens.add(new Token(TokenType.VAR, sSplit[i + 1]));
                    tokens.add(new Token(TokenType.HELP));
-                   break;
-               case "look":
-                   tokens.add(new Token(TokenType.LOOK));
-                   break;
-               case "move":
-                   tokens.add(new Token(TokenType.MOVE));
-                   break;
-               case "quit":
-                   tokens.add(new Token(TokenType.QUIT));
-                   break;
-               case "status":
+               }
+               catch(IndexOutOfBoundsException e){
+                   tokens.add(new Token(TokenType.HELP));
+               }
+               finally{
+                   help_status = true;
+               }
+           }
+           else if(sSplit[i].equals("status")) {
+               try {
+                   tokens.add(new Token(TokenType.VAR, sSplit[i + 1]));
                    tokens.add(new Token(TokenType.STATUS));
-                   break;
-               case "use":
-                   tokens.add(new Token(TokenType.USE));
-                   break;
-               case "on":
-                   tokens.add(new Token(TokenType.PREPOSITION, i));
-                   break;
-               case "with":
-                   tokens.add(new Token(TokenType.PREPOSITION, i));
-                   break;
-               default:
-                   tokens.add(new Token(TokenType.VAR, i));
+               }
+               catch(IndexOutOfBoundsException e){
+                   tokens.add(new Token(TokenType.STATUS));
+               }
+               finally{
+                   help_status = true;
+               }
+
+           }
+           else if(help_status == false){
+               switch (sSplit[i]) {
+                   case "drop":
+                       tokens.add(new Token(TokenType.DROP));
+                       break;
+                   case "get":
+                       tokens.add(new Token(TokenType.GET));
+                       break;
+                   case "look":
+                       tokens.add(new Token(TokenType.LOOK));
+                       break;
+                   case "move":
+                       tokens.add(new Token(TokenType.MOVE));
+                       break;
+                   case "quit":
+                       tokens.add(new Token(TokenType.QUIT));
+                       break;
+                   case "use":
+                       tokens.add(new Token(TokenType.USE));
+                       break;
+                   case "on":
+                       tokens.add(new Token(TokenType.PREPOSITION, sSplit[i]));
+                       break;
+                   case "with":
+                       tokens.add(new Token(TokenType.PREPOSITION, sSplit[i]));
+                       break;
+                   default:
+                       tokens.add(new Token(TokenType.VAR, sSplit[i]));
+               }
            }
        }
        tokens.add(new Token(TokenType.EOL));

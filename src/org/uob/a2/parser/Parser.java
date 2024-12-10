@@ -22,40 +22,76 @@ public class Parser {
 
     public Command parse(ArrayList<Token> tokens) throws CommandErrorException{
         ArrayList<Token> variables = new ArrayList<Token>();
-        for(Token i : variables){
+        ArrayList<Integer> removeTokens = new ArrayList<Integer>();
+        int count = 0;
+        for(Token i : tokens){
             if(i.getTokenType() == TokenType.VAR){
                 variables.add(i);
+                removeTokens.add(count);
+
+            }
+            count++;
+        }
+        for(int i : removeTokens){
+            tokens.remove(i);
+        }
+        if(variables.size() != 0) {
+            switch (tokens.get(0).getTokenType()) {
+                case DROP:
+                    Drop drop = new Drop(variables.get(0).getValue());
+                    return drop;
+                case GET:
+                    Get get = new Get(variables.get(0).getValue());
+                    return get;
+                case HELP:
+                    Help help = new Help(variables.get(0).getValue());
+                    return help;
+                case LOOK:
+                    Look look = new Look(variables.get(0).getValue());
+                    return look;
+                case MOVE:
+                    Move move = new Move(variables.get(0).getValue());
+                    return move;
+                case QUIT:
+                    Quit quit = new Quit();
+                    return quit;
+                case STATUS:
+                    Status status = new Status(variables.get(0).getValue());
+                    return status;
+                case USE:
+                    Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
+                    return use;
+                case ERROR:
+                    throw new CommandErrorException("Invalid Command");
+                default:
+                    return null;
             }
         }
-        switch (tokens.get(0).getTokenType()) {
-            case DROP:
-                Drop drop = new Drop(variables.get(0).getValue());
-                return drop;
-            case GET:
-                Get get = new Get(variables.get(0).getValue());
-                return get;
-            case HELP:
-                Help help = new Help(tokens.get(1).getValue());
-                return help;
-            case LOOK:
-                Look look = new Look(tokens.get(1).getValue());
-                return look;
-            case MOVE:
-                Move move = new Move(tokens.get(1).getValue());
-                return move;
-            case QUIT:
-                Quit quit = new Quit();
-                return quit;
-            case STATUS:
-                Status status = new Status(tokens.get(1).getValue());
-                return status;
-            case USE:
-                Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
-                return use;
-            case ERROR:
-                throw new CommandErrorException("Invalid Command");
-            default:
-                return null;
+        else{
+            switch(tokens.get(0).getTokenType()){
+                case DROP:
+                    throw new CommandErrorException("DROP requires an argument.");
+                case GET:
+                    throw new CommandErrorException("GET requires an argument.");
+                case HELP:
+                    Help help = new Help("topic");
+                    return help;
+                case LOOK:
+                    throw new CommandErrorException("LOOK requires an argument.");
+                case MOVE:
+                    throw new CommandErrorException("MOVE requires an argument.");
+                case QUIT:
+                    Quit quit = new Quit();
+                    return quit;
+                case STATUS:
+                    throw new CommandErrorException("STATUS requires an argument.");
+                case USE:
+                    throw new CommandErrorException("USE requires two arguments.");
+                case ERROR:
+                    throw new CommandErrorException("Invalid Command");
+                default:
+                    return null;
+            }
         }
     }
 
