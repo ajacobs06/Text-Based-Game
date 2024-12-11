@@ -30,26 +30,26 @@ public class Help extends Command {
         if(topic != null) {
             switch (topic) {
                 case "move":
-                    helpOutput = "Use the 'move' command followed by the direction of an exit to leave the room and move into the next.";
+                    helpOutput = "MOVE Command: Use the 'move' command followed by the direction of an exit to leave the room and move into the next.";
                     break;
                 case "look":
-                    helpOutput = "Use the 'look' command followed by one of the following things to explore the world: \n    room\n    exit\n" +
+                    helpOutput = "LOOK Command: Use the 'look' command followed by one of the following things to explore the world: \n    room\n    exit\n" +
                             "    features\n    item name\n    equipment name\n    feature name";
                     break;
                 case "use":
-                    helpOutput = "Use the 'use' command in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>";
+                    helpOutput = "USE Command: Use the 'use' command in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>";
                     break;
                 case "drop":
-                    helpOutput = "Use the 'drop' command follwed by one of the following things to remove it from your player:\n    item name\n    equipment name";
+                    helpOutput = "DROP Command: Use the 'drop' command follwed by one of the following things to remove it from your player:\n    item name\n    equipment name";
                     break;
                 case "get":
-                    helpOutput = "Use the 'get' command followed by one of the following things to pick them up:\n    item name\n    equipment name";
+                    helpOutput = "GET Command: Use the 'get' command followed by one of the following things to pick them up:\n    item name\n    equipment name";
                     break;
                 case "status":
-                    helpOutput = "Use the 'status' command followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score";
+                    helpOutput = "STATUS Command: Use the 'status' command followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score";
                     break;
                 case "combine":
-                    helpOutput = "Use the 'combine' command in the following format:\n    combine <item1> <item2>";
+                    helpOutput = "COMBINE Command: Use the 'combine' command in the following format:\n    combine <item1> <item2>";
                     break;
                 default:
                     helpOutput = "No help available for the topic: " + topic;
@@ -66,7 +66,8 @@ public class Help extends Command {
                     "- DROP - Use 'drop' follwed by one of the following things to remove it from your player:\n    item name\n    equipment name\n" +
                     "- GET - Use 'get' followed by one of the following things to pick them up:\n    item name\n    equipment name\n" +
                     "- STATUS - Use 'status' followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score\n" +
-                    "- COMBINE - Use 'combine' in the following format:\n    combine <item1> <item2>";
+                    "- COMBINE - Use 'combine' in the following format:\n    combine <item1> <item2>" +
+                    "- HELP - Use 'help' followed by a command to learn about the specific command.";
         }
         return helpOutput;
     }
