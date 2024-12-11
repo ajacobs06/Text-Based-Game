@@ -40,27 +40,7 @@ public class Game {
     public static void main(String[] args){
         System.out.println("Game Start.");
 
-        Player player = new Player("Player");
-        Equipment equipment = new Equipment(
-                "key", "key", "A rusty key.", false,
-                new UseInformation(true, "open", "chest1", "chest2", "You unlock the chest.")
-        );
-        player.addEquipment(equipment);
-        Room room = new Room("1", "Room", "A room with a chest.", false);
-        room.addFeature(new Container("chest1", "Old Container", "An old wooden chest.", false));
-        Map map = new Map();
-        map.addRoom(room);
-        map.setCurrentRoom("1");
-        GameState gameState = new GameState(map, player);
 
-        // Execute use command
-        Use useCommand = new Use("key", "Old Container");
-        String result = useCommand.execute(gameState);
-
-        // Validate results
-        boolean testPassed = result.contains("You have already used key");
-
-        System.out.println("AUTOMARK::Use.testUseAlreadyUsedEquipment: " + (testPassed ? "PASS" : "FAIL"));
 
         while(gameLoop.getGameLoop()){
             System.out.println("\nYou are currently in the " + gameState.getMap().getCurrentRoom().getName());
