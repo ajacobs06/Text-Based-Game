@@ -30,43 +30,43 @@ public class Help extends Command {
         if(topic != null) {
             switch (topic) {
                 case "move":
-                    helpOutput = "Use 'move' followed by an exit to leave the room and move into the next.";
+                    helpOutput = "Use the 'move' command followed by the direction of an exit to leave the room and move into the next.";
                     break;
                 case "look":
-                    helpOutput = "Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +
+                    helpOutput = "Use the 'look' command followed by one of the following things to explore the world: \n    room\n    exit\n" +
                             "    features\n    item name\n    equipment name\n    feature name";
                     break;
                 case "use":
-                    helpOutput = "Use 'use' in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>";
+                    helpOutput = "Use the 'use' command in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>";
                     break;
                 case "drop":
-                    helpOutput = "Use 'drop' follwed by one of the following things to remove it from your player:\n    item name\n    equipment name";
+                    helpOutput = "Use the 'drop' command follwed by one of the following things to remove it from your player:\n    item name\n    equipment name";
                     break;
                 case "get":
-                    helpOutput = "Use 'get' followed by one of the following things to pick them up:\n    item name\n    equipment name";
+                    helpOutput = "Use the 'get' command followed by one of the following things to pick them up:\n    item name\n    equipment name";
                     break;
                 case "status":
-                    helpOutput = "Use 'status' followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score";
+                    helpOutput = "Use the 'status' command followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score";
                     break;
                 case "combine":
-                    helpOutput = "Use 'combine' in the following format:\n    combine <item1> <item2>";
+                    helpOutput = "Use the 'combine' command in the following format:\n    combine <item1> <item2>";
                     break;
                 default:
-                    helpOutput = "That is not a valid topic for the help command. Try just typing 'help'.";
+                    helpOutput = "No help available for the topic: " + topic;
                     break;
 
             }
         }
         else{
-            helpOutput = "Here are a list of commands and the ways to use them:\n" +
-                    "Use 'move' followed by an exit to leave the room and move into the next.\n" +
-                    "Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +
-                    "features\n    item name\n    equipment name\n    feature name\n" +
-                    "Use 'use' in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>\n" +
-                    "Use 'drop' follwed by one of the following things to remove it from your player:\n    item name\n    equipment name\n" +
-                    "Use 'get' followed by one of the following things to pick them up:\n    item name\n    equipment name\n" +
-                    "Use 'status' followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score\n" +
-                    "Use 'combine' in the following format:\n    combine <item1> <item2>";
+            helpOutput = "Welcome to the game! Here are a list of commands and the ways to use them:\n" +
+                    "- MOVE - Use 'move' followed by an exit to leave the room and move into the next.\n" +
+                    "- LOOK - Use 'look' followed by one of the following things to explore the world: \n    room\n    exit\n" +
+                    "- features\n    item name\n    equipment name\n    feature name\n" +
+                    "- USE - Use 'use' in the following format to interact with equipments, features and items:\n    use <equipment name> on|with <feature|item>\n" +
+                    "- DROP - Use 'drop' follwed by one of the following things to remove it from your player:\n    item name\n    equipment name\n" +
+                    "- GET - Use 'get' followed by one of the following things to pick them up:\n    item name\n    equipment name\n" +
+                    "- STATUS - Use 'status' followed by one of the following:\n    inventory\n    player\n    item name\n    equipment name\n    map\n    score\n" +
+                    "- COMBINE - Use 'combine' in the following format:\n    combine <item1> <item2>";
         }
         return helpOutput;
     }
