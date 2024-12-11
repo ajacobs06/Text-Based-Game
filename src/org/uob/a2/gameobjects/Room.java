@@ -119,7 +119,7 @@ public class Room extends GameObject {
     public Item getItem(String id){
         Item found = null;
         for(Item i : items){
-            if(i.id.equals(id)){
+            if(i.getId().equals(id) || i.getName().equals(id)){
                 found = i;
             }
         }
@@ -182,7 +182,7 @@ public class Room extends GameObject {
     public Equipment getEquipment(String id){
         Equipment found = null;
         for(Equipment i : equipmentList){
-            if(i.id.equals(id)){
+            if(i.getId().equals(id) || i.getName().equals(id)){
                 found = i;
             }
         }

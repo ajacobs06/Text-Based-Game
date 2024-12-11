@@ -44,6 +44,9 @@ public class Get extends Command {
                 removing = "owned";
             }
         }
+        else{
+            removing = "invalid";
+        }
         switch(removing){
             case "item":
                 gameState.getMap().getCurrentRoom().removeItem(item);
@@ -53,6 +56,8 @@ public class Get extends Command {
                 return toString();
             case "owned":
                 return "You already have " + item;
+            case "invalid":
+                return "No " + item + " to get.";
             default:
                 return "No " + item + " to get.";
         }

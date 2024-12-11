@@ -56,7 +56,7 @@ public class Player {
     public Item getItem(String itemName){
         if(hasItem(itemName)){
             for(Item i : items){
-                if(i.getName().equals(itemName)) {
+                if(i.getName().equals(itemName) || i.getId().equals(itemName)) {
                     placeHolderI = i;
                 }
             }
@@ -94,7 +94,7 @@ public class Player {
     public Equipment getEquipment(String equipment){
         if(hasEquipment(equipment)){
             for(Equipment i : equipmentList){
-                if(i.getName().equals(equipment)) {
+                if(i.getName().equals(equipment) || i.getId().equals(equipment)) {
                     placeHolderEq = i;
                 }
             }

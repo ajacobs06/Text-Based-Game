@@ -40,7 +40,18 @@ public class Game {
     public static void main(String[] args){
         System.out.println("Game Start.");
 
+        Player player = new Player("Player");
+        player.addEquipment(new Equipment("s1", "sword", "A sharp blade.", false, null));
+        GameState gameState = new GameState(new Map(), player);
 
+        // Execute status command
+        Status statusCommand = new Status("sword");
+        String result = statusCommand.execute(gameState);
+
+        // Validate results
+        boolean testPassed = result.contains("A sharp blade.");
+
+        System.out.println("AUTOMARK::Status.testSpecificEquipmentStatus: " + (testPassed ? "PASS" : "FAIL"));
 
         while(gameLoop.getGameLoop()){
             System.out.println("\nYou are currently in the " + gameState.getMap().getCurrentRoom().getName());

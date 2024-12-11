@@ -48,11 +48,17 @@ public class Status extends Command {
                 return "Inventory: " + inventory.toString();
             }
         }
-        else if(equipmentList.isEquipment(topic)){
-            return equipmentList.getEquipment(topic).getDescription();
+        else if(gameState.getPlayer().hasEquipment(topic)) {
+            return gameState.getPlayer().getEquipment(topic).getDescription();
         }
-        else if(itemList.isItem(topic)){
-            return itemList.getItem(topic).getDescription();
+        else if(gameState.getPlayer().hasItem(topic)) {
+            return gameState.getPlayer().getItem(topic).getDescription();
+        }
+        else if(gameState.getMap().getCurrentRoom().hasEquipment(topic)) {
+            return gameState.getMap().getCurrentRoom().getEquipment(topic).getDescription();
+        }
+        else if(gameState.getMap().getCurrentRoom().hasItem(topic)) {
+            return gameState.getMap().getCurrentRoom().getItem(topic).getDescription();
         }
         else if(topic.equals("player")){
             return gameState.getPlayer().toString();
@@ -61,7 +67,7 @@ public class Status extends Command {
             return gameState.getMap().display();
         }
         else{
-            return null;
+            return "";
         }
     }
 
