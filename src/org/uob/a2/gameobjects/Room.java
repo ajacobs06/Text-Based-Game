@@ -97,12 +97,12 @@ public class Room extends GameObject {
         return items;
     }
 
-    public String getVisibleItemsNames(){
+    public String getVisibleItemsDescriptions(){
         visibleItemNames = new StringBuilder();
         for(Item i : items){
             if(i.getHidden() == false){
                 visibleItems.add(i);
-                visibleItemNames.append(i.getName()+",");
+                visibleItemNames.append(i.getDescription()+",");
             }
         }
         return visibleItemNames.toString();
@@ -150,12 +150,12 @@ public class Room extends GameObject {
         return equipmentList;
     }
 
-    public String getVisibleEquipmentsNames(){
+    public String getVisibleEquipmentsDescriptions(){
         visibleEquipmentNames = new StringBuilder();
         for(Equipment e : equipmentList){
             if(e.getHidden() == false){
                 visibleEquipment.add(e);
-                visibleEquipmentNames.append(e.getName()+",");
+                visibleEquipmentNames.append(e.getDescription()+",");
             }
         }
         return visibleEquipmentNames.toString();
@@ -238,20 +238,30 @@ public class Room extends GameObject {
         gameObjects.add(feature);
     }
 
-    public boolean hasItem(String itemName){
+    public boolean hasItem(String item){
         boolean present = false;
         for(Item i : items){
-            if(i.getName().equals(itemName)){
+            if(i.getName().equals(item)){
+                present = true;
+            }
+        }
+        for(Item i : items){
+            if(i.getId().equals(item)){
                 present = true;
             }
         }
         return present;
     }
 
-    public boolean hasEquipment(String equipmentName){
+    public boolean hasEquipment(String equipment){
         boolean present = false;
         for(Equipment i : equipmentList){
-            if(i.getName().equals(equipmentName)) {
+            if(i.getName().equals(equipment)) {
+                present = true;
+            }
+        }
+        for(Equipment i : equipmentList){
+            if(i.getId().equals(equipment)) {
                 present = true;
             }
         }

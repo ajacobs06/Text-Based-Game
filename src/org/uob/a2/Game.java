@@ -40,32 +40,7 @@ public class Game {
     public static void main(String[] args){
         System.out.println("Game Start.");
 
-        UseInformation useInfo = new UseInformation(false, "open", "chest1", "item1", "You opened the chest!");
-        Equipment equipment = new Equipment("key", "Key", "A rusty key.", false, useInfo);
-        Container target = new Container("chest1", "Treasure Chest", "A locked chest.", false);
-        Item hiddenItem = new Item("item1", "Gold Coin", "A shiny gold coin.", true);
 
-        Room room = new Room("1", "Room", "A room with a chest.", false);
-        room.addFeature(target);
-        room.addItem(hiddenItem);
-
-        Map map = new Map();
-        map.addRoom(room);
-        map.setCurrentRoom("1");
-
-        GameState gameState = new GameState(map, new Player("Player"));
-
-        // Use equipment
-        String result = equipment.use(target, gameState);
-
-        // Validate results
-        boolean testPassed =
-                !hiddenItem.getHidden() &&
-                        result.contains("You opened the chest!");
-        System.out.println(!hiddenItem.getHidden());
-        System.out.println(result.contains("You opened the chest!"));
-
-        System.out.println("AUTOMARK::Equipment.testUseOnValidTarget: " + (testPassed ? "PASS" : "FAIL"));
 
         while(gameLoop.getGameLoop()){
             System.out.println("\nYou are currently in the " + gameState.getMap().getCurrentRoom().getName());

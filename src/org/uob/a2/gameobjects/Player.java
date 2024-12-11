@@ -36,15 +36,22 @@ public class Player {
         return items;
     }
 
-    public boolean hasItem(String itemName){
+    public boolean hasItem(String item){
         present = false;
         for(Item i : items){
-            if(i.getName().equals(itemName)){
+            if(i.getName().equals(item)){
+                present = true;
+            }
+        }
+        for(Item i : items){
+            if(i.getId().equals(item)){
                 present = true;
             }
         }
         return present;
     }
+
+
 
     public Item getItem(String itemName){
         if(hasItem(itemName)){
@@ -69,10 +76,15 @@ public class Player {
         return equipmentList;
     }
 
-    public boolean hasEquipment(String equipmentName){
+    public boolean hasEquipment(String equipment){
         present = false;
         for(Equipment i : equipmentList){
-            if(i.getName().equals(equipmentName)) {
+            if(i.getName().equals(equipment)) {
+                present = true;
+            }
+        }
+        for(Equipment i : equipmentList){
+            if(i.getId().equals(equipment)) {
                 present = true;
             }
         }
