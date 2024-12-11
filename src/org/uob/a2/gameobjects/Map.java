@@ -45,6 +45,7 @@ public class Map {
                 currentRoom = map.get(i);
             }
         }
+
     }
 
     public Room getRoom(String roomId){
@@ -68,18 +69,25 @@ public class Map {
         for(int x = 0; x < 9; x++){
             roomDisplay[0][x] = "—";
             roomDisplay[4][x] = "—";
-            }
+        }
         StringBuilder strbuildDisplay = new StringBuilder();
-        for(int y = 0; y < 5; y++){
-            for(int x = 0; x < 9; x++){
-                strbuildDisplay.append(roomDisplay[y][x]);
+        strbuildDisplay.append("\n");
+        strbuildDisplay.append("The @ sign indicates which room you are in\n");
+        for(int i=0; i<roomCounter; i++) {
+            strbuildDisplay.append(map.get(i).getName() + "\n");
+            if(currentRoom.equals(map.get(i))){
+                roomDisplay[2][4] = "@";
             }
-            strbuildDisplay.append("\n");
+            else{
+                roomDisplay[2][4] = " ";
+            }
+            for (int y = 0; y < 5; y++) {
+                for (int x = 0; x < 9; x++) {
+                    strbuildDisplay.append(roomDisplay[y][x]);
+                }
+                strbuildDisplay.append("\n");
+            }
         }
-        for(int i=1; i<roomCounter; i++){
-            roomRepeat.append(strbuildDisplay.toString());
-        }
-        strbuildDisplay.append(roomRepeat.toString());
         String strDisplay = strbuildDisplay.toString();
         return strDisplay;
     }

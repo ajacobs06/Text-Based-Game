@@ -52,6 +52,9 @@ public class Game {
             catch(CommandErrorException e){
                 System.out.println("Invalid command");
             }
+            catch(NullPointerException npe){
+                System.out.println("Invalid command");
+            }
             tokeniser.clearTokens();
         }
 

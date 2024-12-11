@@ -39,7 +39,7 @@ public class Look extends Command {
                     lookOutput += "The available exits are: ";
                     for (int i = 0; i < gameState.getMap().getCurrentRoom().getExits().size(); i++) {
                         if (gameState.getMap().getCurrentRoom().getExits().get(i).getHidden() == false) {
-                            lookOutput += "A path leading " + gameState.getMap().getCurrentRoom().getExits().get(i).getId();
+                            lookOutput += gameState.getMap().getCurrentRoom().getExits().get(i).getDescription();
                         }
                     }
                     break;

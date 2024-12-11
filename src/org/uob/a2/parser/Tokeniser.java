@@ -81,6 +81,9 @@ public class Tokeniser {
                     case "with":
                         tokens.add(new Token(TokenType.PREPOSITION, sSplit[i]));
                         break;
+                    case "and":
+                        tokens.add(new Token(TokenType.PREPOSITION, sSplit[i]));
+                        break;
                     default:
                         tokens.add(new Token(TokenType.VAR, sSplit[i]));
                 }
