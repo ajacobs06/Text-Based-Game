@@ -27,7 +27,25 @@ public class Equipment extends GameObject implements Usable {
     }
 
     public String use(GameObject target, GameState gameState){
-        return "Using Equipment Test";
+        String useTypes = getUseInformation().getAction();
+        String resultId;
+        switch(useTypes){
+            case "reveal":
+                gameState.getMap().getCurrentRoom().revealAll();
+                return getUseInformation().getMessage();
+            case "open":
+                resultId = getUseInformation().getResult();
+                try{
+                    gameState.getMap().getCurrentRoom().getObjectById(resultId).setHidden(false);
+                }
+                catch(NullPointerException e){
+                    gameState.getMap().getCurrentRoom().setHidden(true);
+                }
+                return getUseInformation().getMessage();
+            default:
+                return "Not a valid use type.";
+
+        }
     }
 
     @Override

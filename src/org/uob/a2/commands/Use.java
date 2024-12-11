@@ -30,6 +30,7 @@ public class Use extends Command {
     public String execute(GameState gameState){
         String targetId = null;
         String revealedId = null;
+        GameObject targetObject = null;
         if(gameState.getPlayer().hasEquipment(equipmentName)) {
             try {
                 targetId = gameState.getMap().getCurrentRoom().getObject(target).getId();
@@ -40,24 +41,15 @@ public class Use extends Command {
                 }
             }
             revealedId = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getResult();
+            try {
+                targetObject = gameState.getMap().getCurrentRoom().getObjectById(revealedId);
+            }
+            catch(NullPointerException e) {
+                targetObject = gameState.getMap().getCurrentRoom();
+            }
             if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(targetId) && gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == false) {
                 gameState.getPlayer().getEquipment(equipmentName).getUseInformation().setUsed(true);
-                useTypes = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getAction();
-                switch(useTypes){
-                    case "reveal":
-                        gameState.getMap().getCurrentRoom().revealAll();
-                        break;
-                    case "open":
-                        try {
-                            gameState.getMap().getCurrentRoom().getObjectById(revealedId).setHidden(false);
-                            return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
-                        }
-                        catch(NullPointerException e) {
-                            return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
-                        }
-
-                }
-                return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
+                return gameState.getPlayer().getEquipment(equipmentName).use(targetObject, gameState);
             } else if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == true) {
                 return "You have already used " + equipmentName;
             } else {
