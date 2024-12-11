@@ -16,6 +16,7 @@ public class Look extends Command {
 
     public Look(String target) {
         this.target = target;
+        this.commandType = CommandType.LOOK;
     }
 
     @Override

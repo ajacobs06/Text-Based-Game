@@ -20,6 +20,7 @@ public class Use extends Command {
     public Use(String equipmentName, String target){
         this.equipmentName = equipmentName;
         this.target = target;
+        this.commandType = CommandType.USE;
     }
 
     @Override

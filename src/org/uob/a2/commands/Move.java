@@ -16,6 +16,7 @@ public class Move extends Command {
 
     public Move(String direction) {
         this.direction = direction;
+        this.commandType = CommandType.MOVE;
     }
 
     @Override

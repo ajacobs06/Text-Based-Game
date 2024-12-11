@@ -13,6 +13,7 @@ import org.uob.a2.gameobjects.*;
 public class Quit extends Command {
 
     public Quit(){
+        this.commandType = CommandType.QUIT;
     }
 
     @Override

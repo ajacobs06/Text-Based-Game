@@ -17,6 +17,7 @@ public class Get extends Command {
 
     public Get(String item){
         this.item = item;
+        this.commandType = CommandType.GET;
     }
 
     @Override

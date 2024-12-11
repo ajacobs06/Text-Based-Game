@@ -15,6 +15,7 @@ public class Drop extends Command {
 
     public Drop(String item) {
         this.item = item;
+        this.commandType = CommandType.DROP;
     }
 
     @Override

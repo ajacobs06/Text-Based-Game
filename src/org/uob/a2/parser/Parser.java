@@ -30,16 +30,6 @@ public class Parser {
             }
             count++;
         }
-        /*for(int j=0; j<tokens.size(); j++) {
-            try {
-                if (tokens.get(j).getTokenType() == TokenType.VAR) {
-                    tokens.remove(j);
-                }
-            }
-            catch(IndexOutOfBoundsException e){
-                break;
-            }
-        }*/
         if(variables.size() != 0) {
             for(int i=0; i<tokens.size(); i++) {
                 switch (tokens.get(i).getTokenType()) {
@@ -85,7 +75,7 @@ public class Parser {
                 case GET:
                     throw new CommandErrorException("GET requires an argument.");
                 case HELP:
-                    Help help = new Help("topic");
+                    Help help = new Help(null);
                     return help;
                 case LOOK:
                     throw new CommandErrorException("LOOK requires an argument.");

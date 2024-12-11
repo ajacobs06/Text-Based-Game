@@ -17,6 +17,7 @@ public class Status extends Command {
 
     public Status(String topic) {
         this.topic = topic;
+        this.commandType = CommandType.STATUS;
     }
 
     @Override
