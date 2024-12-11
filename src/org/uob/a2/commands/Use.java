@@ -65,7 +65,7 @@ public class Use extends Command {
             }
         }
         else{
-            return "You do not have this piece of equipment";
+            return "You do not have " + equipmentName;
         }
     }
   
