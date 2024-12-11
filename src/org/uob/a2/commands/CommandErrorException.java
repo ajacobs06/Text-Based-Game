@@ -11,7 +11,7 @@ public class CommandErrorException extends Exception {
     String error;
 
     public CommandErrorException(String error) {
-        this.error = error;
+        super(error);
     }
 
     /**

@@ -38,6 +38,7 @@ public class Map {
     }
 
     public void setCurrentRoom(String roomId){
+        currentRoom = null;
         for(int i=0; i<map.size(); i++){
             String checkRoomId = map.get(i).getId();
             if(map.get(i).getId().equals(roomId)){
