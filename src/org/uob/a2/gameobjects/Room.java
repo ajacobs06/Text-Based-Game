@@ -34,6 +34,31 @@ public class Room extends GameObject {
         super(id, name, description, hidden);
     }
 
+    public GameObject getObject(String name){
+        placeHolderG = null;
+        for(Equipment e : equipmentList){
+            if(e.getName().equals(name)){
+                placeHolderG = e;
+            }
+        }
+        for(Item item : items){
+            if(item.getName().equals(name)){
+                placeHolderG = item;
+            }
+        }
+        for(Feature feature : features){
+            if(feature.getName().equals(name)){
+                placeHolderG = feature;
+            }
+        }
+        for(Exit exit : exitsList){
+            if(exit.getName().equals(name)){
+                placeHolderG = exit;
+            }
+        }
+        return placeHolderG;
+    }
+
     public ArrayList<Exit> getExits(){
         return exitsList;
     }

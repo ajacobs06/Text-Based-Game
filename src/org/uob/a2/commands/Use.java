@@ -13,8 +13,6 @@ import org.uob.a2.gameobjects.*;
 public class Use extends Command {
     String equipmentName;
     String target;
-    String targetId;
-    String revealedId;
     String useTypes;
 
     public Use(String equipmentName, String target){
@@ -30,8 +28,17 @@ public class Use extends Command {
 
     @Override
     public String execute(GameState gameState){
+        String targetId = null;
+        String revealedId = null;
         if(gameState.getPlayer().hasEquipment(equipmentName)) {
-            targetId = GameObjectList.getGameObject(target).getId();
+            try {
+                targetId = gameState.getMap().getCurrentRoom().getObject(target).getId();
+            }
+            catch(NullPointerException e) {
+                if(gameState.getMap().getCurrentRoom().getName().equals(target)) {
+                    targetId = gameState.getMap().getCurrentRoom().getId();
+                }
+            }
             revealedId = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getResult();
             if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(targetId) && gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == false) {
                 gameState.getPlayer().getEquipment(equipmentName).getUseInformation().setUsed(true);
