@@ -42,6 +42,7 @@ public class Use extends Command {
                     case "open":
                         try {
                             gameState.getMap().getCurrentRoom().getItem(revealedId).setHidden(false);
+                            return "You opened the " + target;
                         }
                         catch(NullPointerException e){
                             gameState.getMap().getCurrentRoom().getEquipment(revealedId).setHidden(false);

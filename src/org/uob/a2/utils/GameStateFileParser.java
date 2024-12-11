@@ -41,7 +41,13 @@ public class GameStateFileParser {
                 String line = fileInput.nextLine();
                 line = line.trim();
                 String[] lineSplit = line.split(":");
-                String[] objectParts = lineSplit[1].split(",");
+                String[] objectParts;
+                try {
+                    objectParts = lineSplit[1].split(",");
+                }
+                catch(IndexOutOfBoundsException e) {
+                    continue;
+                }
                 for (int i = 0; i < objectParts.length; i++) {
                     if (objectParts[i].equalsIgnoreCase("true") || objectParts[i].equalsIgnoreCase("false")) {
                         hidden = Boolean.parseBoolean(objectParts[i]);
