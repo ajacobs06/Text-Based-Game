@@ -49,19 +49,19 @@ public class Use extends Command {
                         break;
                     case "open":
                         try {
-                            gameState.getMap().getCurrentRoom().getItem(revealedId).setHidden(false);
-                            return "You opened the " + target;
+                            gameState.getMap().getCurrentRoom().getObjectById(revealedId).setHidden(false);
+                            return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
                         }
-                        catch(NullPointerException e){
-                            gameState.getMap().getCurrentRoom().getEquipment(revealedId).setHidden(false);
+                        catch(NullPointerException e) {
+                            return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
                         }
-                        break;
+
                 }
                 return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
             } else if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == true) {
                 return "You have already used " + equipmentName;
             } else {
-                return "Invalid Target";
+                return "Invalid use target";
             }
         }
         else{

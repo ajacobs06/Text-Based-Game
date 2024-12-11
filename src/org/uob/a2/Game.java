@@ -40,7 +40,29 @@ public class Game {
     public static void main(String[] args){
         System.out.println("Game Start.");
 
+        Player player = new Player("Player");
+        Equipment equipment = new Equipment(
+                "key", "key", "A rusty key.", false,
+                new UseInformation(false, "open", "c1", "chest2", "You unlock the chest.")
+        );
+        Container target = new Container("c1", "Old Chest", "An old wooden chest.", false);
+        Room room = new Room("1", "Room", "A room with a chest.", false);
+        room.addFeature(target);
+        player.addEquipment(equipment);
+        Map map = new Map();
+        map.addRoom(room);
+        map.setCurrentRoom("1");
+        GameState gameState = new GameState(map, player);
 
+        // Execute use command
+        Use useCommand = new Use("key", "Old Chest");
+        String result = useCommand.execute(gameState);
+
+        // Validate results
+        boolean testPassed = result.contains("You unlock the chest.") &&
+                equipment.getUseInformation().isUsed();
+
+        System.out.println("AUTOMARK::Use.testUseOnValidTarget: " + (testPassed ? "PASS" : "FAIL"));
 
         while(gameLoop.getGameLoop()){
             System.out.println("\nYou are currently in the " + gameState.getMap().getCurrentRoom().getName());
