@@ -36,6 +36,7 @@ public class Move extends Command {
             return "No exit found in that direction.";
         }
         else{
+            Score.addScore(10);
             return "Moving towards " + direction + "\n";
         }
     }

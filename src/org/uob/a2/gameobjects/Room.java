@@ -18,6 +18,7 @@ public class Room extends GameObject {
     ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     ArrayList<Equipment> visibleEquipment = new ArrayList<Equipment>();
     ArrayList<Item> visibleItems = new ArrayList<Item>();
+    ArrayList<Fighter> fighters = new ArrayList<Fighter>();
 
     StringBuilder visibleItemNames = new StringBuilder();
     StringBuilder visibleEquipmentNames = new StringBuilder();
@@ -197,6 +198,18 @@ public class Room extends GameObject {
             }
         }
         return found;
+    }
+
+    public Fighter getFighter(){
+        Fighter found = null;
+        for(Fighter f: fighters){
+            found = f;
+        }
+        return found;
+    }
+
+    public void addFighter(Fighter fighter){
+        fighters.add(fighter);
     }
 
     public void addEquipment(Equipment equipment){

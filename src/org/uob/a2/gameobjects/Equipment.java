@@ -1,5 +1,7 @@
 package org.uob.a2.gameobjects;
 
+import java.util.Scanner;
+
 public class Equipment extends GameObject implements Usable {
    
     /**
@@ -10,6 +12,8 @@ public class Equipment extends GameObject implements Usable {
      */
 
     protected UseInformation useInformation;
+    Fight fight;
+    Scanner sc = new Scanner(System.in);
 
     public Equipment(String id, String name, String description, boolean hidden, UseInformation useInformation){
         super(id, name, description, hidden);
@@ -32,9 +36,11 @@ public class Equipment extends GameObject implements Usable {
         switch(useTypes){
             case "reveal":
                 gameState.getMap().getCurrentRoom().revealAll();
+                Score.addScore(15);
                 return getUseInformation().getMessage();
             case "open":
                 resultId = getUseInformation().getResult();
+                Score.addScore(15);
                 try{
                     gameState.getMap().getCurrentRoom().getObjectById(resultId).setHidden(false);
                 }
@@ -42,6 +48,17 @@ public class Equipment extends GameObject implements Usable {
                     gameState.getMap().getCurrentRoom().setHidden(true);
                 }
                 return getUseInformation().getMessage();
+            case "fight":
+                if(gameState.getPlayer().getFighter() != null) {
+                    System.out.println("You have the choice of fighter class. Tank/Assasin/Warrior.\nTank has a strong heavy attack but a weak light attack\nAssassin has a strong light attack but a weak heavy attack.\nWarrior is a balance of both.");
+                    String fighterClass = sc.nextLine();
+                    gameState.getPlayer().getFighter().setFighterClass(fighterClass);
+                    fight = new Fight(gameState.getPlayer().getFighter(), gameState.getMap().getCurrentRoom().getFighter());
+                    return fight.initiateFight();
+                }
+                else{
+                    return "You do not have a bot to fight with";
+                }
             default:
                 return "Not a valid use type.";
 

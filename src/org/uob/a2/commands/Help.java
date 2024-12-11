@@ -51,6 +51,9 @@ public class Help extends Command {
                 case "combine":
                     helpOutput = "COMBINE Command: Use the 'combine' command in the following format:\n    combine <item1> <item2>";
                     break;
+                case "score":
+                    helpOutput = "Score points are added and removed as follows:\n    Picking up an item/equipment    +10 points\n    Winning bot fight    +100 points\n    Losing bot fight    -50 points\n    Moving to a new room    +10";
+                    break;
                 default:
                     helpOutput = "No help available for the topic: " + topic;
                     break;

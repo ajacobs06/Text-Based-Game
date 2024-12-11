@@ -1,38 +1,50 @@
 player:arthur
 map:wr
+intro:You are in a new high tech facility specialising in finding criminals. It creates a simulation of the criminals life!in order to track where they've been and where they are going. You are a special agent instructed to use this new facility!to follow an illegal bot fighter/escaped convict.!Goodluck (p.s. try and find a bot on your journey you may need it).
     room:wr,welcomeroom,The room is dark.You are informed by an overhead voice that portal travel is not permitted without a pendant.,false
-        equipment:pe,pendant,A pendant with a key signet engraved into it,false,reveal,wr,wp,A great purple WELCOMEPORTAL opens at one end of the room drawing you in
-        exit:wp,welcomeportal,A purple glowing portal embedded in a doorway,cb,false
+        equipment:pe,pendant,A pendant with a key signet engraved into it,false,open,wr,wp,A great purple WELCOMEPORTAL opens at one end of the room drawing you in
+        exit:wp,welcomeportal,A purple glowing WELCOMEPORTAL embedded in a doorway,cb,true
     room:cb,childsbedroom,A CHILDSBEDROOM is a greatly disconcerting view in this facility. Why was it here? A portal out is nowhere to be seen.,false
         container:dr,drawers,A child's set of drawers by the bed,false
-        item:js,joystick,A JOKSTICK can be used to control something, false
+        item:js,joystick,A JOKSTICK can be used to control something,true,true,an,co
         equipment:k0,key,A rusting KEY labelled 'chest of drawers',false,open,dr,js,You use the key to open the drawers. One drawer contains a joystick
-        equipment:bu,button,A red BUTTON sits on the bedside table,false,reveal,cb,cbp,A great portal opens at the foot of the bed.
+        equipment:bu,button,A red BUTTON sits on the bedside table,false,open,cb,cbp,A great portal opens at the foot of the bed.
         exit:cbp,bedroomportal,the BEDROOMPORTAL to leave and go to another room,cl,true
     room:cl,classroom,the CLASSROOM reminds you of your childhood school (dingy and rundown),false
-        item:an,antenna,An ANTENNA - might be helpful combined with something to make a controller,false
+        item:an,antenna,An ANTENNA - might be helpful combined with something to make a controller,false,true,js,co
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
         exit:crp,classroomportal,the CLASSROOMPORTAL to leave the classroom,ca,false
     room:ca,cantine,A CANTINE like that of a prison - its empty and silent,false
-        exit:cp,cantineportal,the CANTINEPORTAL can take you to the next room as there is not much going on here, false
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
+        exit:cp,cantineportal,the CANTINEPORTAL can take you to the next room as there is not much going on here,pc,false
     room:pc,prisoncell,A PRISONCELL - its contents are scarce but a portal is already open out of it clearly somebody had escaped here using it,false
-        item:co,controller,a handmade CONTROLLER sits on the bed impressively carved out of the materials a prisoner has access to,false
-        exit:pcp,cellportal,the CELLPORTAL is still open so you can follow the escaped convict,false
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
+        exit:pcp,cellportal,the CELLPORTAL is still open so you can follow the escaped convict,se,false
     room:se,sewers,the SEWERS have a putrid smell that overwhelms you if you are quiet for long enough you are convinced you hear footsteps in the distance,false
-        exit:sep,sewerportal, the SEWERPORTAL can take you away from this stench,false
-    room:st,street,a bustling STREET of New York, false
-        equipment:gu,guitar,perhaps taking the GUITAR and using it on the street will earn you some money,false,reveal,st,wc,You earn a wad of CASH
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
+        exit:sep,sewerportal, the SEWERPORTAL can take you away from this stench,st,false
+    room:st,street,a bustling STREET of New York,false
+        equipment:gu,guitar,perhaps taking the GUITAR and using it on the street will earn you some money,false,open,st,wc,You earn a wad of CASH
         item:wc,cash,A thick wad of CASH,true
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
+        exit:stp,streetportal,the STREEPORTAL,do,false
     room:do,docks,the DOCKS are cold and dark in the distance you hear men talking,false
         container:sc,container,A great big shipping CONTAINER with a fingerprint lock on it,false
-        item:rb,robotbody,A ROBOTBODY possibly can be combined with a circuit to make a robot,true
+        item:rb,robotbody,A ROBOTBODY possibly can be combined with a circuit to make a robot,true,true,ci,ro
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
         equipment:fi,finger,A severed FINGER lies on the floor by the container,false,open,sc,rb,You use the finger to get into the container which contains a ROBOTBODY
         exit:dp,docksportal,The DOCKSPORTAL takes you away from the docks,cw,false
     room:cw,warehouse,the WAREHOUSE is dead silent - ts filled with rows and rows of circuits,false
-        item:ci,circuit,A robot CIRCUIT lies on the conveyor belt,false
+        item:ci,circuit,A robot CIRCUIT lies on the conveyor belt,false,true,rb,ro
         feature:cv,conveyor,the CONVEYOR belt has an item lying on it,false
-        item:ro,robot, you have created a ROBOT but it needs to be controlled,true
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
+        item:ro,robot,you have created a ROBOT but it needs to be controlled,true,true,co,pl
+        exit:wap,warehouseportal,a WAREHOUSE portal to get you out,fr,false
     room:fr,ring,the fighting RING is surrounded by thousands of fans supporting you - you need to make a bot,false
-        equipment:ft, fighter, You have created a fighting bot to compete in the ring,true,fight,fr,ex,After vanquishing your foe and completing your objective a portal opens to take you home
+        equipment:sf,button,A BUTTON to start the bot fight,false,fight,fr,ex,After completing your fight a portal opens to take you home
+        item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
+        fighter:pl,player,Your fighting bot,true
+        fighter:en,enemy,Your opponent's fighting bot,true
         exit:ex,finalexit, the FINALEXIT takes you back having completed your objective,lr,true
     room:lr,finalroom, you have completed the game you can now quit,false
 

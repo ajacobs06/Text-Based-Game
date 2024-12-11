@@ -61,6 +61,14 @@ public class Parser {
                         } else {
                             throw new CommandErrorException("Invalid number of arguments. 2 required.");
                         }
+                    case COMBINE:
+                        if(variables.size() > 1){
+                            Combine combine = new Combine(variables.get(0).getValue(), variables.get(1).getValue());
+                            return combine;
+                        }
+                        else{
+                            throw new CommandErrorException("Invalid number of arguments. 2 required.");
+                        }
                     case ERROR:
                         throw new CommandErrorException("Invalid Command");
                     default:

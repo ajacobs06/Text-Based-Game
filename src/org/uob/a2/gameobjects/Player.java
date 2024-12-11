@@ -16,6 +16,7 @@ public class Player {
     ArrayList<Item> items = new ArrayList<Item>();
     ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+    ArrayList<Fighter> fighters = new ArrayList<Fighter>();
     boolean present = false;
     String name;
     Equipment placeHolderEq;
@@ -70,6 +71,17 @@ public class Player {
     public void addItem(Item item){
         items.add(item);
         gameObjects.add(item);
+    }
+    public Fighter getFighter(){
+        Fighter found = null;
+        for(Fighter f: fighters){
+            found = f;
+        }
+        return found;
+    }
+
+    public void addFighter(Fighter fighter){
+        fighters.add(fighter);
     }
 
     public ArrayList<Equipment> getEquipment(){

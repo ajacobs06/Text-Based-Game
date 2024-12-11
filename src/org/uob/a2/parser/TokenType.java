@@ -67,6 +67,9 @@ public enum TokenType {
     /**
      * Represents the end of a line or command.
      */
-    EOL;
+    EOL,
+
+
+    COMBINE;
 }
 

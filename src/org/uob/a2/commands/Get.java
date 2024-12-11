@@ -49,9 +49,11 @@ public class Get extends Command {
         }
         switch(removing){
             case "item":
+                Score.addScore(10);
                 gameState.getMap().getCurrentRoom().removeItem(item);
                 return toString();
             case "equipment":
+                Score.addScore(10);
                 gameState.getMap().getCurrentRoom().removeEquipment(item);
                 return toString();
             case "owned":

@@ -1,14 +1,15 @@
 package org.uob.a2.commands;
 
 import org.uob.a2.gameobjects.*;
+
 import java.util.ArrayList;
 
 /**
  * Represents the status command, allowing the player to retrieve information
  * about their inventory, specific items, or their overall status.
- * 
+ *
  * <p>
- * The status command can display a list of items in the player's inventory, 
+ * The status command can display a list of items in the player's inventory,
  * provide details about a specific item, or show the player's general status.
  * </p>
  */
@@ -21,7 +22,7 @@ public class Status extends Command {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "STATUS" + topic;
     }
 
@@ -51,6 +52,8 @@ public class Status extends Command {
                 return gameState.getPlayer().toString();
             } else if (topic.equals("map")) {
                 return gameState.getMap().display();
+            } else if (topic.equals("score")) {
+                return "Player score: " + Score.getScore();
             } else if (gameState.getPlayer().hasEquipment(topic)) {
                 return gameState.getPlayer().getEquipment(topic).getDescription();
             } else if (gameState.getPlayer().hasItem(topic)) {
@@ -59,11 +62,10 @@ public class Status extends Command {
                 return gameState.getMap().getCurrentRoom().getEquipment(topic).getDescription();
             } else if (gameState.getMap().getCurrentRoom().hasItem(topic)) {
                 return gameState.getMap().getCurrentRoom().getItem(topic).getDescription();
-            }  else {
+            } else {
                 return "";
             }
-        }
-        catch(NullPointerException e) {
+        } catch (NullPointerException e) {
             return "";
         }
     }

@@ -9,9 +9,31 @@ package org.uob.a2.gameobjects;
  * </p>
  */
 public class Item extends GameObject {
+    boolean combinable;
+    String target;
+    String result;
 
     public Item(String id, String name, String description, boolean hidden){
         super(id, name, description, hidden);
+    }
+
+    public Item(String id, String name, String description, boolean hidden, boolean combinable, String target, String result){
+        super(id, name, description, hidden);
+        this.combinable = combinable;
+        this.target = target;
+        this.result = result;
+    }
+
+    public boolean isCombinable(){
+        return combinable;
+    }
+
+    public String getTarget(){
+        return target;
+    }
+
+    public String getResult(){
+        return result;
     }
 
 
