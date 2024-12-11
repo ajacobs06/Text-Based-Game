@@ -32,7 +32,7 @@ public class Use extends Command {
         if(gameState.getPlayer().hasEquipment(equipmentName)) {
             targetId = GameObjectList.getGameObject(target).getId();
             revealedId = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getResult();
-            if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(targetId)) {
+            if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(targetId) && gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == false) {
                 gameState.getPlayer().getEquipment(equipmentName).getUseInformation().setUsed(true);
                 useTypes = gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getAction();
                 switch(useTypes){
@@ -49,6 +49,8 @@ public class Use extends Command {
                         break;
                 }
                 return gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getMessage();
+            } else if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == true) {
+                return "You have already used " + equipmentName;
             } else {
                 return "Invalid Target";
             }

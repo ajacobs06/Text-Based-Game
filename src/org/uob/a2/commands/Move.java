@@ -35,7 +35,7 @@ public class Move extends Command {
             return "No exit found in that direction.";
         }
         else{
-            return "Move successful.\nYou are now in the " + gameState.getMap().getCurrentRoom().getName();
+            return "Moving towards " + direction + "\n";
         }
     }
 

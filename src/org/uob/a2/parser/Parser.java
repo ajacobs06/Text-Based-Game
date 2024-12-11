@@ -30,7 +30,7 @@ public class Parser {
             }
             count++;
         }
-        for(int j=0; j<tokens.size(); j++) {
+        /*for(int j=0; j<tokens.size(); j++) {
             try {
                 if (tokens.get(j).getTokenType() == TokenType.VAR) {
                     tokens.remove(j);
@@ -39,42 +39,43 @@ public class Parser {
             catch(IndexOutOfBoundsException e){
                 break;
             }
-        }
+        }*/
         if(variables.size() != 0) {
-            switch (tokens.get(0).getTokenType()) {
-                case DROP:
-                    Drop drop = new Drop(variables.get(0).getValue());
-                    return drop;
-                case GET:
-                    Get get = new Get(variables.get(0).getValue());
-                    return get;
-                case HELP:
-                    Help help = new Help(variables.get(0).getValue());
-                    return help;
-                case LOOK:
-                    Look look = new Look(variables.get(0).getValue());
-                    return look;
-                case MOVE:
-                    Move move = new Move(variables.get(0).getValue());
-                    return move;
-                case QUIT:
-                    Quit quit = new Quit();
-                    return quit;
-                case STATUS:
-                    Status status = new Status(variables.get(0).getValue());
-                    return status;
-                case USE:
-                    if(variables.size()>1) {
-                        Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
-                        return use;
-                    }
-                    else{
-                        throw new CommandErrorException("Invalid number of arguments. 2 required.");
-                    }
-                case ERROR:
-                    throw new CommandErrorException("Invalid Command");
-                default:
-                    return null;
+            for(int i=0; i<tokens.size(); i++) {
+                switch (tokens.get(i).getTokenType()) {
+                    case DROP:
+                        Drop drop = new Drop(variables.get(0).getValue());
+                        return drop;
+                    case GET:
+                        Get get = new Get(variables.get(0).getValue());
+                        return get;
+                    case HELP:
+                        Help help = new Help(variables.get(0).getValue());
+                        return help;
+                    case LOOK:
+                        Look look = new Look(variables.get(0).getValue());
+                        return look;
+                    case MOVE:
+                        Move move = new Move(variables.get(0).getValue());
+                        return move;
+                    case QUIT:
+                        Quit quit = new Quit();
+                        return quit;
+                    case STATUS:
+                        Status status = new Status(variables.get(0).getValue());
+                        return status;
+                    case USE:
+                        if (variables.size() > 1) {
+                            Use use = new Use(variables.get(0).getValue(), variables.get(1).getValue());
+                            return use;
+                        } else {
+                            throw new CommandErrorException("Invalid number of arguments. 2 required.");
+                        }
+                    case ERROR:
+                        throw new CommandErrorException("Invalid Command");
+                    default:
+                        return null;
+                }
             }
         }
         else{
@@ -103,6 +104,7 @@ public class Parser {
                     return null;
             }
         }
+        return null;
     }
 
 }
