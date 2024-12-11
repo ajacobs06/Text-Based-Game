@@ -37,7 +37,7 @@ public class Drop extends Command {
             return toString();
         }
         else{
-            return "You do not have this item to drop!";
+            return "You cannot drop " + item;
         }
     }
    

@@ -23,7 +23,7 @@ public class Use extends Command {
 
     @Override
     public String toString(){
-        return "USE" + equipmentName + "ON" + target;
+        return "use " + equipmentName + " on " + target;
     }
 
     @Override

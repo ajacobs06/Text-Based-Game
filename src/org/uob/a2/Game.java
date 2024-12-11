@@ -41,7 +41,6 @@ public class Game {
         System.out.println("Game Start.");
 
 
-
         while(gameLoop.getGameLoop()){
             System.out.println("\nYou are currently in the " + gameState.getMap().getCurrentRoom().getName());
             System.out.println("Please enter a command:");
