@@ -46,7 +46,7 @@ public class Look extends Command {
                 case "features":
                     lookOutput += "You also see: ";
                     for (int i = 0; i < gameState.getMap().getCurrentRoom().getFeatures().size(); i++) {
-                        lookOutput += gameState.getMap().getCurrentRoom().getFeatures().get(i).getName().toLowerCase();
+                        lookOutput += gameState.getMap().getCurrentRoom().getFeatures().get(i).getName().toLowerCase() + " - " + gameState.getMap().getCurrentRoom().getFeatures().get(i).getDescription();
                     }
                     break;
                 default:
