@@ -46,7 +46,6 @@ public class Use extends Command {
                 targetObject = gameState.getMap().getCurrentRoom();
             }
             if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().getTarget().equals(targetId) && gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == false) {
-                gameState.getPlayer().getEquipment(equipmentName).getUseInformation().setUsed(true);
                 return gameState.getPlayer().getEquipment(equipmentName).use(targetObject, gameState);
             } else if (gameState.getPlayer().getEquipment(equipmentName).getUseInformation().isUsed() == true) {
                 return "You have already used " + equipmentName;
