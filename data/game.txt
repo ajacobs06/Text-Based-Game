@@ -42,6 +42,7 @@ intro:You are in a new high tech facility specialising in finding criminals. It 
         exit:wap,warehouseportal,a WAREHOUSE portal to get you out,fr,false
     room:fr,ring,the fighting RING is surrounded by thousands of fans supporting you - you need to make a bot,false
         equipment:sf,button,A BUTTON to start the bot fight,false,fight,fr,ex,After completing your fight a portal opens to take you home
+        item:ro,robot,you have created a ROBOT but it needs to be controlled,true,true,co,pl
         item:co,controller,a CONTROLLER for a fighter bot made by you,true,true,ro,pl
         fighter:pl,player,Your fighting bot,true
         fighter:en,enemy,Your opponent's fighting bot,true
