@@ -35,12 +35,10 @@ public class Equipment extends GameObject implements Usable {
         String resultId;
         switch(useTypes){
             case "reveal":
-                gameState.getPlayer().getEquipment(name).getUseInformation().setUsed(true);
                 gameState.getMap().getCurrentRoom().revealAll();
                 Score.addScore(15);
                 return getUseInformation().getMessage();
             case "open":
-                gameState.getPlayer().getEquipment(name).getUseInformation().setUsed(true);
                 resultId = getUseInformation().getResult();
                 Score.addScore(15);
                 try{
@@ -52,7 +50,6 @@ public class Equipment extends GameObject implements Usable {
                 return getUseInformation().getMessage();
             case "fight":
                 if(gameState.getPlayer().getFighter() != null) {
-                    gameState.getPlayer().getEquipment(name).getUseInformation().setUsed(true);
                     System.out.println("You have the choice of fighter class. Tank/Assasin/Warrior.\nTank has a strong heavy attack but a weak light attack\nAssassin has a strong light attack but a weak heavy attack.\nWarrior is a balance of both.");
                     String fighterClass = sc.nextLine();
                     gameState.getPlayer().getFighter().setFighterClass(fighterClass);
